@@ -1,0 +1,13 @@
+// EJC Architecture — DEMO worker (client preview).
+// Deploys this folder as a static-assets Worker at
+// https://ejcarchitecture-demo.rhyne-schmidt55.workers.dev
+// The live site (ejcarchitecture-v1) is NOT touched by this config.
+{
+  "name": "ejcarchitecture-demo",
+  "compatibility_date": "2026-08-24",
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "single-page-application"
+  }
+}

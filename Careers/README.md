@@ -18,3 +18,6 @@ import into the EJC website as a single file or paste into a custom-code page el
 2. Confirm the applications email address for notifications.
 3. `assets/` holds the optimized standalone images if the site builder prefers hosted
    images over the embedded ones.
+4. The fullscreen menu's nav links (`/`, `/projects`, `/services`, `/featured`,
+   `/contact`) are placeholders marked in the HTML — point them at the live
+   site's real page URLs on import.

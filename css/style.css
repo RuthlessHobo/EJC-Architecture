@@ -1815,4 +1815,14 @@ img, video, canvas { max-width: 100%; }
 .file-field__text > span { font-size: 0.8rem; color: var(--smoke); }
 .theme-dark .file-field__text > span { color: var(--stone); }
 
-.careers-sent { padding: 2.5rem 0; }
+.careers-sent,
+.form-sent { padding: 2.5rem 0; }
+.form-sent p { margin-top: 1.2rem; color: var(--stone); max-width: 34rem; }
+.form-sent .form-sent__meta {
+  margin-top: 1.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.form-sent .form-sent__meta a { color: inherit; border-bottom: 1px solid currentColor; }

@@ -1765,15 +1765,23 @@ img, video, canvas { max-width: 100%; }
 }
 @media (min-width: 900px) {
   .careers-spec li {
-    font-size: 1.25rem;
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
     letter-spacing: 0.02em;
-    padding: 1.15rem 0 1.15rem 2.3rem;
+    padding: 1.2rem 0 1.2rem 2.4rem;
   }
-  .careers-spec li::before { top: 2.15rem; width: 1.1rem; }
+  .careers-spec li::before { top: 2.25rem; width: 1.1rem; }
 }
 
+/* careers typography conforms to the site's reading scale
+   (contact-info runs clamp(1.1rem, 2.2vw, 1.45rem)) */
+.careers-page .statement__body { font-size: clamp(1.05rem, 1.4vw, 1.25rem); max-width: 36rem; }
+.careers-h-side { font-size: clamp(2rem, 4vw, 3.4rem); }
+.careers-page .spec dd { font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+.careers-page .index-row__meta { font-size: clamp(0.8rem, 1.1vw, 0.95rem); }
+.careers-page .form-note { font-size: 0.95rem; }
+
 .careers-band img { width: 100%; height: clamp(20rem, 60vh, 34rem); object-fit: cover; }
-.careers-quote { font-size: clamp(1.4rem, 3vw, 2.6rem); margin-top: 1.8rem; }
+.careers-quote { font-size: clamp(1.6rem, 3.2vw, 2.9rem); margin-top: 1.8rem; }
 
 /* CV attachment field — matches .field underline language */
 .file-field { margin-bottom: 2.8rem; }

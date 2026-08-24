@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EJC Architecture</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;1,8..60,300&display=swap">
+<style>
+:root {
+  --paper:#fbfbf9; --ink:#161615; --muted:#6f6d67; --line:#e5e3dd;
+  --brass:#98865a; --veil:rgba(22,22,21,.55); --lift:#ffffff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper:#121211; --ink:#eceae4; --muted:#98958c; --line:#2b2a27;
+    --brass:#b3a074; --veil:rgba(0,0,0,.6); --lift:#1a1a18;
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#121211; --ink:#eceae4; --muted:#98958c; --line:#2b2a27;
+  --brass:#b3a074; --veil:rgba(0,0,0,.6); --lift:#1a1a18;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; animation:none !important; } }
+body {
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Source Serif 4', Georgia, serif; font-weight:300;
+  font-size:1.05rem; line-height:1.65;
+}
+h1,h2,h3,.label,.wordmark,nav,.p-num,.idx-num,button { font-family:'Jost','Century Gothic',Futura,sans-serif; }
+img { max-width:100%; display:block; }
+a { color:inherit; }
+
+.topbar {
+  position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
+  padding:.9rem clamp(1.2rem,4vw,3rem); background:var(--paper); border-bottom:1px solid var(--line);
+}
+.wordmark { display:flex; align-items:baseline; gap:.7rem; text-decoration:none; }
+.wordmark .ejc { font-weight:200; font-size:1.7rem; letter-spacing:.14em; line-height:1; }
+.wordmark .arch { font-weight:300; font-size:.62rem; letter-spacing:.5em; text-transform:uppercase; color:var(--muted); }
+.topbar nav { display:flex; gap:1.6rem; font-size:.72rem; letter-spacing:.28em; text-transform:uppercase; }
+.topbar nav a { text-decoration:none; color:var(--muted); transition:color .2s; }
+.topbar nav a:hover, .topbar nav a:focus-visible { color:var(--brass); }
+
+.hero { position:relative; min-height:78vh; display:grid; place-items:end start; overflow:hidden; }
+.hero img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.hero::after { content:""; position:absolute; inset:0; background:linear-gradient(to top, var(--veil), transparent 60%); }
+.hero-text { position:relative; z-index:1; color:#fff; padding:clamp(1.5rem,5vw,4rem); max-width:44rem; }
+.hero-text h1 { font-weight:200; font-size:clamp(2rem,5vw,3.6rem); letter-spacing:.1em; margin:0 0 .4rem; line-height:1.15; text-wrap:balance; }
+.hero-text p { margin:0; font-size:1rem; opacity:.92; }
+.label { font-size:.68rem; letter-spacing:.4em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:1rem; }
+.hero .label { color:#d9c9a0; }
+
+.wrap { padding:0 clamp(1.2rem,4vw,3rem); max-width:78rem; margin:0 auto; }
+
+.intro { padding:clamp(3rem,7vw,5.5rem) 0 clamp(2rem,5vw,3.5rem); max-width:46rem; }
+.intro p { font-size:1.15rem; }
+
+.index { border-top:1px solid var(--line); padding:clamp(2rem,5vw,3.5rem) 0; }
+.idx-row {
+  display:grid; grid-template-columns:3.5rem 1fr auto; gap:1rem; align-items:baseline;
+  padding:.85rem .2rem; border-bottom:1px solid var(--line); text-decoration:none; transition:color .2s;
+}
+.idx-row:hover, .idx-row:focus-visible { color:var(--brass); }
+.idx-num { font-weight:300; font-size:.8rem; letter-spacing:.2em; color:var(--muted); }
+.idx-title { font-family:'Jost',sans-serif; font-weight:300; font-size:1.15rem; letter-spacing:.06em; }
+.idx-loc { font-size:.85rem; color:var(--muted); font-style:italic; }
+@media (max-width:640px) { .idx-loc { display:none; } }
+
+.project { padding:clamp(3rem,7vw,5.5rem) 0 0; }
+.p-head { display:grid; grid-template-columns:minmax(16rem,1fr) minmax(20rem,1.4fr); gap:clamp(1.5rem,4vw,4rem); margin-bottom:2rem; }
+@media (max-width:780px) { .p-head { grid-template-columns:1fr; } }
+.p-meta { display:flex; gap:1.2rem; align-items:baseline; }
+.p-num { font-weight:200; font-size:2.6rem; color:var(--line); line-height:1; }
+.project h2 { font-weight:300; font-size:clamp(1.5rem,3vw,2.1rem); letter-spacing:.08em; margin:0 0 .3rem; text-wrap:balance; }
+.p-tags { font-family:'Jost',sans-serif; font-size:.72rem; letter-spacing:.24em; text-transform:uppercase; color:var(--muted); margin:0; }
+.p-desc p { margin:0 0 1em; max-width:38rem; }
+.p-desc p:last-child { margin-bottom:0; }
+
+.g-btn { border:0; padding:0; background:none; cursor:zoom-in; width:100%; display:block; }
+.g-btn:focus-visible { outline:2px solid var(--brass); outline-offset:3px; }
+.p-lead { margin:0; }
+.p-lead img { width:100%; aspect-ratio:16/9; object-fit:cover; }
+.gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(15rem,1fr)); gap:1.1rem; margin-top:1.1rem; }
+.g-item { margin:0; }
+.g-item img { width:100%; aspect-ratio:4/3; object-fit:cover; background:var(--lift); transition:opacity .2s; }
+.g-item .g-btn:hover img { opacity:.85; }
+.g-item figcaption { font-family:'Jost',sans-serif; font-size:.66rem; letter-spacing:.26em; text-transform:uppercase; color:var(--muted); margin-top:.45rem; }
+
+.contact { border-top:1px solid var(--line); margin-top:clamp(3rem,7vw,5.5rem); padding:clamp(2.5rem,6vw,4.5rem) 0 3rem; }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+@media (max-width:640px) { .contact-grid { grid-template-columns:1fr; } }
+.contact h2 { font-weight:200; font-size:clamp(1.8rem,4vw,2.6rem); letter-spacing:.12em; margin:0; }
+.contact dl { margin:0; }
+.contact dt { font-family:'Jost',sans-serif; font-size:.66rem; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-top:1.1rem; }
+.contact dd { margin:.15rem 0 0; font-size:1.05rem; }
+.contact a { text-decoration:none; border-bottom:1px solid var(--line); transition:border-color .2s; }
+.contact a:hover { border-color:var(--brass); }
+.foot { padding:1.2rem 0 2rem; font-family:'Jost',sans-serif; font-size:.68rem; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); }
+
+dialog.lightbox { border:0; padding:0; background:transparent; max-width:min(96vw,90rem); width:auto; }
+dialog.lightbox::backdrop { background:rgba(8,8,8,.88); }
+.lb-inner img { max-width:min(94vw,88rem); max-height:84vh; width:auto; margin:0 auto; }
+.lb-cap { font-family:'Jost',sans-serif; color:#cfcdc6; font-size:.72rem; letter-spacing:.26em; text-transform:uppercase; text-align:center; padding:.8rem 0 0; }
+.lb-close { position:fixed; top:1rem; right:1.2rem; background:none; border:0; color:#fff; font-size:2rem; cursor:pointer; line-height:1; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a class="wordmark" href="#top" aria-label="EJC Architecture — top of page">
+    <span class="ejc">EJC</span><span class="arch">Architecture</span>
+  </a>
+  <nav aria-label="Sections">
+    <a href="#work">Work</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="top">
+  <img src="assets/6-erf-1839-the-rest-estate-nelspruit--2-render-01.jpg" alt="Contemporary stone and timber residence at The Rest Nature Estate, Nelspruit">
+  <div class="hero-text">
+    <span class="label">Architectural Studio — Pretoria, South Africa</span>
+    <h1>Deliberate, balanced, timeless architecture.</h1>
+    <p>Residential design from concept sketch to construction — new homes, additions and alterations across South Africa.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="intro">
+    <span class="label">The studio</span>
+    <p>EJC Architecture is the practice of Eduan Coetzer, a SACAP-registered architectural professional. The studio works closely with each client — from first sketch to final detail — to deliver homes defined by honest forms, disciplined proportions and refined detailing.</p>
+  </div>
+
+  <div class="index" id="work">
+    <span class="label">Selected work</span>
+    <a class="idx-row" href="#1-b-b-clubview"><span class="idx-num">01</span><span class="idx-title">B&amp;B Clubview</span><span class="idx-loc">Clubview, Centurion</span></a><a class="idx-row" href="#2-additions-alterations-montana"><span class="idx-num">02</span><span class="idx-title">Additions &amp; Alterations Montana</span><span class="idx-loc">Montana Park, Pretoria</span></a><a class="idx-row" href="#3-erf-94-cradle-ridge-estate"><span class="idx-num">03</span><span class="idx-title">Erf 94 Cradle Ridge Estate</span><span class="idx-loc">Cradle Ridge Estate, Krugersdorp</span></a><a class="idx-row" href="#4-erf-81-cradle-ridge-estate"><span class="idx-num">04</span><span class="idx-title">Erf 81 Cradle Ridge Estate</span><span class="idx-loc">Cradle Ridge Estate, Krugersdorp</span></a><a class="idx-row" href="#5-erf-1661-saldanha-bay"><span class="idx-num">05</span><span class="idx-title">Erf 1661 Saldanha Bay</span><span class="idx-loc">St Helena Bay, West Coast</span></a><a class="idx-row" href="#6-erf-1839-the-rest-estate-nelspruit"><span class="idx-num">06</span><span class="idx-title">Erf 1839 The Rest Estate</span><span class="idx-loc">The Rest Nature Estate, Nelspruit</span></a>
+  </div>
+
+  
+<section class="project" id="1-b-b-clubview">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">01</span>
+      <div>
+        <h2>B&amp;B Clubview</h2>
+        <p class="p-tags">Boutique Bed &amp; Breakfast &nbsp;·&nbsp; Clubview, Centurion</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>This project transforms an existing dwelling into a contemporary boutique bed and breakfast, designed to balance guest comfort with the owner’s privacy. The layout carefully separates the private residence, office, and communal guest areas while creating a welcoming hospitality experience.</p><p>The development comprises four self-contained guest suites, each featuring a bedroom, en-suite bathroom, kitchenette, and private patio or balcony. Shared amenities include a communal lounge, bar and kitchen, and a rooftop braai area for guests to relax and socialise.</p><p>Ideally located in the heart of Clubview, Centurion, the property offers convenient access to major highways, schools, shopping centres, sporting facilities, and entertainment, making it an ideal destination for both business and leisure travellers.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="B&amp;B Clubview — Render" aria-label="View larger: B&amp;B Clubview">
+      <img loading="lazy" src="assets/1-b-b-clubview--2-render-01.jpg" alt="B&amp;B Clubview — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Render" aria-label="View larger: B&amp;B Clubview, Render"><img loading="lazy" src="assets/1-b-b-clubview--2-render-02.jpg" alt="B&amp;B Clubview — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Render" aria-label="View larger: B&amp;B Clubview, Render"><img loading="lazy" src="assets/1-b-b-clubview--2-render-03.jpg" alt="B&amp;B Clubview — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Render" aria-label="View larger: B&amp;B Clubview, Render"><img loading="lazy" src="assets/1-b-b-clubview--2-render-04.jpg" alt="B&amp;B Clubview — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Concept sketch" aria-label="View larger: B&amp;B Clubview, Concept sketch"><img loading="lazy" src="assets/1-b-b-clubview--1-intro-sketch-b-b-clubview.jpg" alt="B&amp;B Clubview — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Floor plan" aria-label="View larger: B&amp;B Clubview, Floor plan"><img loading="lazy" src="assets/1-b-b-clubview--4-floorplan-01.jpg" alt="B&amp;B Clubview — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Floor plan" aria-label="View larger: B&amp;B Clubview, Floor plan"><img loading="lazy" src="assets/1-b-b-clubview--4-floorplan-02.jpg" alt="B&amp;B Clubview — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Site plan" aria-label="View larger: B&amp;B Clubview, Site plan"><img loading="lazy" src="assets/1-b-b-clubview--4-site-plan-00.jpg" alt="B&amp;B Clubview — Site plan"></button><figcaption>Site plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Elevation" aria-label="View larger: B&amp;B Clubview, Elevation"><img loading="lazy" src="assets/1-b-b-clubview--5-elevation-01.jpg" alt="B&amp;B Clubview — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Elevation" aria-label="View larger: B&amp;B Clubview, Elevation"><img loading="lazy" src="assets/1-b-b-clubview--5-elevation-02.jpg" alt="B&amp;B Clubview — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Axonometric" aria-label="View larger: B&amp;B Clubview, Axonometric"><img loading="lazy" src="assets/1-b-b-clubview--6-axo-view.jpg" alt="B&amp;B Clubview — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Axonometric section" aria-label="View larger: B&amp;B Clubview, Axonometric section"><img loading="lazy" src="assets/1-b-b-clubview--7-axo-cut-01.jpg" alt="B&amp;B Clubview — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="B&amp;B Clubview — Axonometric section" aria-label="View larger: B&amp;B Clubview, Axonometric section"><img loading="lazy" src="assets/1-b-b-clubview--7-axo-cut-02.jpg" alt="B&amp;B Clubview — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+<section class="project" id="2-additions-alterations-montana">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">02</span>
+      <div>
+        <h2>Additions &amp; Alterations Montana</h2>
+        <p class="p-tags">Additions &amp; Alterations &nbsp;·&nbsp; Montana Park, Pretoria</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>Working closely with a young couple, this additions and alterations project reimagines their home around a more connected and contemporary way of living. Together, we transformed a series of enclosed rooms into an open-plan layout that enhances everyday family life and creates welcoming spaces for entertaining. Exposed roof trusses and elevated ceilings introduce warmth, volume and architectural character, creating a refined spatial experience.</p><p>With a carefully managed budget, the project focused on smart design decisions and efficient construction methods to achieve a mid- to high-end result. Close collaboration between the client, contractor and EJC Architecture ensured every intervention delivered maximum value without compromising on quality or architectural intent.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Render" aria-label="View larger: Additions &amp; Alterations Montana">
+      <img loading="lazy" src="assets/2-additions-alterations-montana--2-render-01.jpg" alt="Additions &amp; Alterations Montana — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Render" aria-label="View larger: Additions &amp; Alterations Montana, Render"><img loading="lazy" src="assets/2-additions-alterations-montana--2-render-02.jpg" alt="Additions &amp; Alterations Montana — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Render" aria-label="View larger: Additions &amp; Alterations Montana, Render"><img loading="lazy" src="assets/2-additions-alterations-montana--2-render-03.jpg" alt="Additions &amp; Alterations Montana — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Concept sketch" aria-label="View larger: Additions &amp; Alterations Montana, Concept sketch"><img loading="lazy" src="assets/2-additions-alterations-montana--1-intro-sketch-additions-alterations-montana.jpg" alt="Additions &amp; Alterations Montana — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Floor plan" aria-label="View larger: Additions &amp; Alterations Montana, Floor plan"><img loading="lazy" src="assets/2-additions-alterations-montana--4-floorplan-01.jpg" alt="Additions &amp; Alterations Montana — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Elevation" aria-label="View larger: Additions &amp; Alterations Montana, Elevation"><img loading="lazy" src="assets/2-additions-alterations-montana--5-elevation-01.jpg" alt="Additions &amp; Alterations Montana — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Elevation" aria-label="View larger: Additions &amp; Alterations Montana, Elevation"><img loading="lazy" src="assets/2-additions-alterations-montana--5-elevation-02.jpg" alt="Additions &amp; Alterations Montana — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Axonometric" aria-label="View larger: Additions &amp; Alterations Montana, Axonometric"><img loading="lazy" src="assets/2-additions-alterations-montana--6-axo-view.jpg" alt="Additions &amp; Alterations Montana — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Additions &amp; Alterations Montana — Axonometric section" aria-label="View larger: Additions &amp; Alterations Montana, Axonometric section"><img loading="lazy" src="assets/2-additions-alterations-montana--7-axo-cut-01.jpg" alt="Additions &amp; Alterations Montana — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+<section class="project" id="3-erf-94-cradle-ridge-estate">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">03</span>
+      <div>
+        <h2>Erf 94 Cradle Ridge Estate</h2>
+        <p class="p-tags">Additions &amp; Alterations &nbsp;·&nbsp; Cradle Ridge Estate, Krugersdorp</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>A refined additions and alterations project that enhances the home’s architectural presence while respecting its original character. The design introduces a clearly defined entrance and a purpose-built sports car gallery, creating a stronger street presence and a memorable arrival experience.</p><p>Through disciplined proportions, clean geometry, and the thoughtful reinterpretation of existing forms and materials, the architecture achieves a cohesive, minimalist expression where every intervention feels deliberate, balanced, and timeless.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Render" aria-label="View larger: Erf 94 Cradle Ridge Estate">
+      <img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-arender-01.jpg" alt="Erf 94 Cradle Ridge Estate — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Render" aria-label="View larger: Erf 94 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-arender-02.jpg" alt="Erf 94 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Render" aria-label="View larger: Erf 94 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-arender-03.jpg" alt="Erf 94 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Detail" aria-label="View larger: Erf 94 Cradle Ridge Estate, Detail"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-detail-shot-01.jpg" alt="Erf 94 Cradle Ridge Estate — Detail"></button><figcaption>Detail</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Detail" aria-label="View larger: Erf 94 Cradle Ridge Estate, Detail"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-detail-shot-02.jpg" alt="Erf 94 Cradle Ridge Estate — Detail"></button><figcaption>Detail</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Detail" aria-label="View larger: Erf 94 Cradle Ridge Estate, Detail"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-detail-shot-03.jpg" alt="Erf 94 Cradle Ridge Estate — Detail"></button><figcaption>Detail</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Detail" aria-label="View larger: Erf 94 Cradle Ridge Estate, Detail"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-detail-shot-04.jpg" alt="Erf 94 Cradle Ridge Estate — Detail"></button><figcaption>Detail</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Detail" aria-label="View larger: Erf 94 Cradle Ridge Estate, Detail"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--2-detail-shot-05.jpg" alt="Erf 94 Cradle Ridge Estate — Detail"></button><figcaption>Detail</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Concept sketch" aria-label="View larger: Erf 94 Cradle Ridge Estate, Concept sketch"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--1-intro-sketch-erf-94-cradle-ridge-estate.jpg" alt="Erf 94 Cradle Ridge Estate — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Floor plan" aria-label="View larger: Erf 94 Cradle Ridge Estate, Floor plan"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--4-floorplan-01.jpg" alt="Erf 94 Cradle Ridge Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Elevation" aria-label="View larger: Erf 94 Cradle Ridge Estate, Elevation"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--5-elevation-01.jpg" alt="Erf 94 Cradle Ridge Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Elevation" aria-label="View larger: Erf 94 Cradle Ridge Estate, Elevation"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--5-elevation-02.jpg" alt="Erf 94 Cradle Ridge Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Axonometric" aria-label="View larger: Erf 94 Cradle Ridge Estate, Axonometric"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--6-axo-view.jpg" alt="Erf 94 Cradle Ridge Estate — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 94 Cradle Ridge Estate — Axonometric section" aria-label="View larger: Erf 94 Cradle Ridge Estate, Axonometric section"><img loading="lazy" src="assets/3-erf-94-cradle-ridge-estate--7-axo-cut-01.jpg" alt="Erf 94 Cradle Ridge Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+<section class="project" id="4-erf-81-cradle-ridge-estate">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">04</span>
+      <div>
+        <h2>Erf 81 Cradle Ridge Estate</h2>
+        <p class="p-tags">New High-End Residence &nbsp;·&nbsp; Cradle Ridge Estate, Krugersdorp</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>Designed for a sloping, north-facing site, this contemporary residence embraces its setting through expansive glazing, generous covered patios, and seamless indoor-outdoor living.</p><p>The home’s clean architectural lines, carefully framed views, and integrated swimming pool create a refined family environment that maximises natural light, comfort, and the exceptional outlook across the estate.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Render" aria-label="View larger: Erf 81 Cradle Ridge Estate">
+      <img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--2-render-01.jpg" alt="Erf 81 Cradle Ridge Estate — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Render" aria-label="View larger: Erf 81 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--2-render-02.jpg" alt="Erf 81 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Render" aria-label="View larger: Erf 81 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--2-render-03.jpg" alt="Erf 81 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Render" aria-label="View larger: Erf 81 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--2-render-04.jpg" alt="Erf 81 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Render" aria-label="View larger: Erf 81 Cradle Ridge Estate, Render"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--2-render-05.jpg" alt="Erf 81 Cradle Ridge Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Concept sketch" aria-label="View larger: Erf 81 Cradle Ridge Estate, Concept sketch"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--1-intro-sketch-erf-81-cradle-ridge-estate.jpg" alt="Erf 81 Cradle Ridge Estate — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Floor plan" aria-label="View larger: Erf 81 Cradle Ridge Estate, Floor plan"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--4-floorplan-01.jpg" alt="Erf 81 Cradle Ridge Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Floor plan" aria-label="View larger: Erf 81 Cradle Ridge Estate, Floor plan"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--4-floorplan-02.jpg" alt="Erf 81 Cradle Ridge Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Floor plan" aria-label="View larger: Erf 81 Cradle Ridge Estate, Floor plan"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--4-floorplan-03.jpg" alt="Erf 81 Cradle Ridge Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Elevation" aria-label="View larger: Erf 81 Cradle Ridge Estate, Elevation"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--5-elevation-01.jpg" alt="Erf 81 Cradle Ridge Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Elevation" aria-label="View larger: Erf 81 Cradle Ridge Estate, Elevation"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--5-elevation-02.jpg" alt="Erf 81 Cradle Ridge Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Axonometric" aria-label="View larger: Erf 81 Cradle Ridge Estate, Axonometric"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--6-axo-view.jpg" alt="Erf 81 Cradle Ridge Estate — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Axonometric section" aria-label="View larger: Erf 81 Cradle Ridge Estate, Axonometric section"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--7-axo-cut-01.jpg" alt="Erf 81 Cradle Ridge Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Axonometric section" aria-label="View larger: Erf 81 Cradle Ridge Estate, Axonometric section"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--7-axo-cut-02.jpg" alt="Erf 81 Cradle Ridge Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 81 Cradle Ridge Estate — Axonometric section" aria-label="View larger: Erf 81 Cradle Ridge Estate, Axonometric section"><img loading="lazy" src="assets/4-erf-81-cradle-ridge-estate--7-axo-cut-03.jpg" alt="Erf 81 Cradle Ridge Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+<section class="project" id="5-erf-1661-saldanha-bay">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">05</span>
+      <div>
+        <h2>Erf 1661 Saldanha Bay</h2>
+        <p class="p-tags">Beach House &nbsp;·&nbsp; St Helena Bay, West Coast</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>Set in the quiet coastal town of Saint Helena Bay, this home draws inspiration from the timeless simplicity of Cape Dutch architecture. The design is defined by honest forms, carefully considered proportions, and refined detailing.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Render" aria-label="View larger: Erf 1661 Saldanha Bay">
+      <img loading="lazy" src="assets/5-erf-1661-saldanha-bay--2-render-01.jpg" alt="Erf 1661 Saldanha Bay — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Render" aria-label="View larger: Erf 1661 Saldanha Bay, Render"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--2-render-02.jpg" alt="Erf 1661 Saldanha Bay — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Render" aria-label="View larger: Erf 1661 Saldanha Bay, Render"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--2-render-03.jpg" alt="Erf 1661 Saldanha Bay — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Concept sketch" aria-label="View larger: Erf 1661 Saldanha Bay, Concept sketch"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--1-intro-sketch-erf-1661-saldanha-bay.jpg" alt="Erf 1661 Saldanha Bay — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Floor plan" aria-label="View larger: Erf 1661 Saldanha Bay, Floor plan"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--4-floorplan-01.jpg" alt="Erf 1661 Saldanha Bay — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Elevation" aria-label="View larger: Erf 1661 Saldanha Bay, Elevation"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--5-elevation-01.jpg" alt="Erf 1661 Saldanha Bay — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Elevation" aria-label="View larger: Erf 1661 Saldanha Bay, Elevation"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--5-elevation-02.jpg" alt="Erf 1661 Saldanha Bay — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Axonometric" aria-label="View larger: Erf 1661 Saldanha Bay, Axonometric"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--6-axo-view.jpg" alt="Erf 1661 Saldanha Bay — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1661 Saldanha Bay — Axonometric section" aria-label="View larger: Erf 1661 Saldanha Bay, Axonometric section"><img loading="lazy" src="assets/5-erf-1661-saldanha-bay--7-axo-cut-01.jpg" alt="Erf 1661 Saldanha Bay — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+<section class="project" id="6-erf-1839-the-rest-estate-nelspruit">
+  <header class="p-head">
+    <div class="p-meta">
+      <span class="p-num">06</span>
+      <div>
+        <h2>Erf 1839 The Rest Estate</h2>
+        <p class="p-tags">High-End Residence &nbsp;·&nbsp; The Rest Nature Estate, Nelspruit</p>
+      </div>
+    </div>
+    <div class="p-desc"><p>Set within the indigenous landscape of The Rest Estate, this contemporary residence is carefully positioned to embrace the site’s natural beauty and sweeping views across Nelspruit. The stepped design follows the terrain, creating a series of interconnected living spaces that maximise privacy while opening towards the surrounding landscape.</p><p>Natural stone, warm timber and textured plaster form a restrained material palette that complements the estate’s bushveld character, allowing the home to blend seamlessly with its environment. Designed to celebrate outdoor living, the residence offers a calm, timeless retreat that responds sensitively to both the site and its remarkable setting.</p></div>
+  </header>
+  <figure class="p-lead">
+    <button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Render" aria-label="View larger: Erf 1839 The Rest Estate">
+      <img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--2-render-01.jpg" alt="Erf 1839 The Rest Estate — Render">
+    </button>
+  </figure>
+  <div class="gallery"><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Render" aria-label="View larger: Erf 1839 The Rest Estate, Render"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--2-render-02.jpg" alt="Erf 1839 The Rest Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Render" aria-label="View larger: Erf 1839 The Rest Estate, Render"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--2-render-03.jpg" alt="Erf 1839 The Rest Estate — Render"></button><figcaption>Render</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Concept sketch" aria-label="View larger: Erf 1839 The Rest Estate, Concept sketch"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--1-intro-sketch-erf-1839-the-rest-estate-nelspruit.jpg" alt="Erf 1839 The Rest Estate — Concept sketch"></button><figcaption>Concept sketch</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Floor plan" aria-label="View larger: Erf 1839 The Rest Estate, Floor plan"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--4-floorplan-01.jpg" alt="Erf 1839 The Rest Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Floor plan" aria-label="View larger: Erf 1839 The Rest Estate, Floor plan"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--4-floorplan-02.jpg" alt="Erf 1839 The Rest Estate — Floor plan"></button><figcaption>Floor plan</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Elevation" aria-label="View larger: Erf 1839 The Rest Estate, Elevation"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--5-elevation-01.jpg" alt="Erf 1839 The Rest Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Elevation" aria-label="View larger: Erf 1839 The Rest Estate, Elevation"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--5-elevation-02.jpg" alt="Erf 1839 The Rest Estate — Elevation"></button><figcaption>Elevation</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Axonometric" aria-label="View larger: Erf 1839 The Rest Estate, Axonometric"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--6-axo-view-01.jpg" alt="Erf 1839 The Rest Estate — Axonometric"></button><figcaption>Axonometric</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Axonometric section" aria-label="View larger: Erf 1839 The Rest Estate, Axonometric section"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--7-axo-cut-01.jpg" alt="Erf 1839 The Rest Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure><figure class="g-item"><button class="g-btn" type="button" data-cap="Erf 1839 The Rest Estate — Axonometric section" aria-label="View larger: Erf 1839 The Rest Estate, Axonometric section"><img loading="lazy" src="assets/6-erf-1839-the-rest-estate-nelspruit--7-axo-cut-02.jpg" alt="Erf 1839 The Rest Estate — Axonometric section"></button><figcaption>Axonometric section</figcaption></figure></div>
+</section>
+
+  <footer class="contact" id="contact">
+    <div class="contact-grid">
+      <div>
+        <span class="label">Get in touch</span>
+        <h2>Let’s design your next project.</h2>
+      </div>
+      <dl>
+        <dt>Architect</dt><dd>Eduan Coetzer</dd>
+        <dt>Email</dt><dd><a href="mailto:ejc.archeduan@gmail.com">ejc.archeduan@gmail.com</a></dd>
+        <dt>Phone</dt><dd><a href="tel:+27639902222">063 990 2222</a></dd>
+        <dt>Registration</dt><dd>SACAP registered · PSAT58497224</dd>
+      </dl>
+    </div>
+    <p class="foot">© EJC Architecture · Demo preview</p>
+  </footer>
+</div>
+
+<dialog class="lightbox" id="lb" aria-label="Image viewer">
+  <button class="lb-close" id="lbClose" aria-label="Close">×</button>
+  <div class="lb-inner"><img id="lbImg" src="" alt=""><p class="lb-cap" id="lbCap"></p></div>
+</dialog>
+
+<script>
+(function () {
+  var lb = document.getElementById('lb'), im = document.getElementById('lbImg'), cap = document.getElementById('lbCap');
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.g-btn');
+    if (b) {
+      im.src = b.querySelector('img').src;
+      im.alt = b.getAttribute('data-cap');
+      cap.textContent = b.getAttribute('data-cap');
+      lb.showModal();
+      return;
+    }
+    if (e.target === lb || e.target.id === 'lbClose') { lb.close(); im.src = ''; }
+  });
+  lb.addEventListener('close', function () { im.src = ''; });
+})();
+</script>
+
+</body>
+</html>

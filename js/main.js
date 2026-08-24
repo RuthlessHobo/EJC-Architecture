@@ -327,6 +327,16 @@
     input.addEventListener('change', sync);
     sync();
   });
+  // Keep FormSubmit's post-submit redirect on the origin the page is served
+  // from, so the demo deploy returns to the demo and live returns to live.
+  document.querySelectorAll('.contact-form input[name="_next"]').forEach((next) => {
+    try {
+      const u = new URL(next.value, window.location.href);
+      next.value = window.location.origin + u.pathname + u.search + u.hash;
+    } catch (_) {
+      /* leave the authored value alone if it will not parse */
+    }
+  });
   const form = document.querySelector('.contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {

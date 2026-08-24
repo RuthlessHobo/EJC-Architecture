@@ -1724,3 +1724,79 @@ img, video, canvas { max-width: 100%; }
   }
 }
 .marquee__track.is-paused { animation-play-state: paused; }
+
+/* ---------- Careers page ---------- */
+/* menu gained a 6th item — stagger delays for rows 5 & 6 */
+.menu.is-open li:nth-child(5) .menu__link { transition-delay: 0.43s; }
+.menu.is-open li:nth-child(6) .menu__link { transition-delay: 0.5s; }
+
+.hiring-dot {
+  display: inline-block;
+  width: 0.5em; height: 0.5em;
+  margin-left: 0.55em;
+  border-radius: 50%;
+  background: var(--bronze);
+  vertical-align: middle;
+  animation: hiring-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hiring-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) { .hiring-dot { animation: none; } }
+
+.careers-spec { margin-bottom: 3.4rem; }
+.careers-spec h3 {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+.careers-spec li {
+  position: relative;
+  padding: 0.9rem 0 0.9rem 1.9rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+  font-weight: 300;
+}
+.careers-spec li::before {
+  content: '';
+  position: absolute;
+  left: 0.1rem; top: 1.7rem;
+  width: 0.9rem; height: 1px;
+  background: var(--bronze);
+}
+
+.careers-band img { width: 100%; height: clamp(20rem, 60vh, 34rem); object-fit: cover; }
+.careers-quote { font-size: clamp(1.4rem, 3vw, 2.6rem); margin-top: 1.8rem; }
+
+/* CV attachment field — matches .field underline language */
+.file-field { margin-bottom: 2.8rem; }
+.file-field__box {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.2rem;
+  border: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+  cursor: pointer;
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+.file-field__box:hover, .file-field__box:focus-within {
+  border-color: var(--bronze);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+.file-field__box input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+}
+.file-field__icon {
+  flex: none;
+  width: 2.4rem; height: 2.4rem;
+  display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  color: var(--stone);
+}
+.file-field__icon svg { width: 1rem; height: 1rem; }
+.file-field__text strong { display: block; font-weight: 400; letter-spacing: 0.04em; }
+.file-field__text > span { font-size: 0.8rem; color: var(--smoke); }
+.theme-dark .file-field__text > span { color: var(--stone); }
+
+.careers-sent { padding: 2.5rem 0; }

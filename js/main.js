@@ -1,5 +1,5 @@
 /* ============================================================
-   EJC ARCHITECTURE — interaction layer
+   EJC ARCHITECTURE - interaction layer
    Vanilla JS. No dependencies. rAF-lerped parallax,
    IntersectionObserver reveals, magnetic elements.
    ============================================================ */
@@ -260,12 +260,12 @@
   /* ---------- Stages: sketch -> render scroll progress ---------- */
   if (stages && !prefersReduced) {
     const stageNames = [
-      'Stage 01 — Inception',
-      'Stage 02 — Concept',
-      'Stage 03 — Design development',
-      'Stage 04 — Council submission',
-      'Stage 05 — Construction',
-      'Stage 06 — Close out',
+      'Stage 01: Inception',
+      'Stage 02: Concept',
+      'Stage 03: Design development',
+      'Stage 04: Council submission',
+      'Stage 05: Construction',
+      'Stage 06: Close out',
     ];
     const label = stages.querySelector('.stages__stage');
     const stagesMobile = window.matchMedia('(max-width: 820px)').matches;

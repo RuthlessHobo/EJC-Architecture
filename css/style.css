@@ -1,5 +1,5 @@
 /* ============================================================
-   EJC ARCHITECTURE — core stylesheet
+   EJC ARCHITECTURE - core stylesheet
    Palette + type system derived from brand deck (2024)
    ============================================================ */
 
@@ -37,7 +37,7 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --ink: #101113;            /* charcoal black — steel cladding */
+  --ink: #101113;            /* charcoal black - steel cladding */
   --ink-soft: #1a1c1f;
   --charcoal: #31363b;        /* corrugated steel mid */
   --bone: #eeebe3;            /* warm plaster off-white */
@@ -1193,7 +1193,7 @@ body.is-ready .hero__media video { transform: scale(1); }
   .hero__media video { display: none; }
 }
 
-/* ---------- Stages v4: flat full-bleed — draw, detail, paint in passes ---------- */
+/* ---------- Stages v4: flat full-bleed - draw, detail, paint in passes ---------- */
 .stages {
   position: relative;
   height: 560vh;
@@ -1234,7 +1234,7 @@ body.is-ready .hero__media video { transform: scale(1); }
   background-size: 620px;
   opacity: calc(1 - var(--pp));
 }
-/* phase 1 — hundreds of strokes trace the architecture */
+/* phase 1 - hundreds of strokes trace the architecture */
 .stages__draw {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -1248,32 +1248,32 @@ body.is-ready .hero__media video { transform: scale(1); }
   stroke-linejoin: round;
   stroke-dasharray: 1;
 }
-/* construction guides — first in, linger over the finished render */
+/* construction guides - first in, linger over the finished render */
 .stages__draw .gd {
   stroke: #6a655c; stroke-width: 0.9; stroke-opacity: 0.34;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.00 + var(--i) * 0.11)) / 0.05), 1);
   opacity: calc(1 - var(--gf));
 }
-/* pencil linework — sweeps left to right */
+/* pencil linework - sweeps left to right */
 .stages__draw .pn {
   stroke: #4b463e;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.08 + var(--i) * 0.36)) / 0.08), 1);
   opacity: calc(1 - var(--pp));
 }
-/* hatching in the shaded recesses — arrives late in the drawing */
+/* hatching in the shaded recesses - arrives late in the drawing */
 .stages__draw .ht {
   stroke: #57524a; stroke-width: 1.0; stroke-opacity: 0.5;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.30 + var(--i) * 0.18)) / 0.06), 1);
   opacity: calc(1 - var(--pp));
 }
-/* phase 2 — pencil shading resolves */
+/* phase 2 - pencil shading resolves */
 .stages__sketch {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   -webkit-mask-image: linear-gradient(96deg, #000 calc(var(--skf) * 150% - 34%), transparent calc(var(--skf) * 150% + 8%));
   mask-image: linear-gradient(96deg, #000 calc(var(--skf) * 150% - 34%), transparent calc(var(--skf) * 150% + 8%));
 }
-/* phase 3 — colour arrives as one continuous wash: a soft leading tint,
+/* phase 3 - colour arrives as one continuous wash: a soft leading tint,
    then the full image, both on wide feathered gradient fronts */
 .stages__reveal {
   position: absolute; inset: 0;
@@ -1567,7 +1567,7 @@ img, video, canvas { max-width: 100%; }
 .stages__pin { contain: layout style paint; }
 .stages__art { will-change: transform; transform-style: flat; }
 @media (max-width: 820px) {
-  /* masks repaint on CPU every frame on phones — swap wipes for opacity fades */
+  /* masks repaint on CPU every frame on phones - swap wipes for opacity fades */
   .stages__sketch {
     -webkit-mask-image: none !important; mask-image: none !important;
     opacity: var(--skf);
@@ -1655,7 +1655,7 @@ img, video, canvas { max-width: 100%; }
 }
 
 
-/* ---------- v21: mobile stages unpinned — plays once on entry ---------- */
+/* ---------- v21: mobile stages unpinned - plays once on entry ---------- */
 @media (max-width: 820px) {
   .stages--m { height: auto !important; }
   .stages--m .stages__pin {
@@ -1671,13 +1671,13 @@ img, video, canvas { max-width: 100%; }
   .stages--m .stages__pin { position: sticky !important; top: 0; height: 100svh; }
   .stages--m .stages__drawvid { display: none !important; }
   .stages--m .stages__draw { display: none !important; }
-  /* the sketch is the opening state — always fully present */
+  /* the sketch is the opening state - always fully present */
   .stages--m .stages__sketch {
     opacity: 1 !important;
     transition: none !important;
     -webkit-mask-image: none !important; mask-image: none !important;
   }
-  /* the render crossfades in with scroll — pure composited opacity */
+  /* the render crossfades in with scroll - pure composited opacity */
   .stages--m .stages__reveal {
     opacity: clamp(0, calc((var(--p) - 0.38) / 0.34), 1) !important;
     transition: none !important;
@@ -1715,7 +1715,7 @@ img, video, canvas { max-width: 100%; }
 }
 
 
-/* ---------- v24: mobile perf — no live blur, no idle animations ---------- */
+/* ---------- v24: mobile perf - no live blur, no idle animations ---------- */
 @media (max-width: 820px) {
   .header.is-scrolled {
     backdrop-filter: none !important;
@@ -1726,7 +1726,7 @@ img, video, canvas { max-width: 100%; }
 .marquee__track.is-paused { animation-play-state: paused; }
 
 /* ---------- Careers page ---------- */
-/* menu gained a 6th item — stagger delays for rows 5 & 6 */
+/* menu gained a 6th item - stagger delays for rows 5 & 6 */
 .menu.is-open li:nth-child(5) .menu__link { transition-delay: 0.43s; }
 .menu.is-open li:nth-child(6) .menu__link { transition-delay: 0.5s; }
 
@@ -1783,7 +1783,7 @@ img, video, canvas { max-width: 100%; }
 .careers-band img { width: 100%; height: clamp(20rem, 60vh, 34rem); object-fit: cover; }
 .careers-quote { font-size: clamp(1.6rem, 3.2vw, 2.9rem); margin-top: 1.8rem; }
 
-/* CV attachment field — matches .field underline language */
+/* CV attachment field - matches .field underline language */
 .file-field { margin-bottom: 2.8rem; }
 .file-field__box {
   display: flex;

@@ -1,0 +1,15 @@
+// EJC Architecture — PRODUCTION worker (ejcarch.co.za).
+// Deploy with: npx wrangler deploy -c wrangler.production.jsonc
+//
+// Kept separate from wrangler.jsonc (the demo worker) so the two cannot be
+// confused. "not_found_handling" is deliberately omitted: the live site returns
+// a real 404 for unknown paths, and the demo's single-page-application setting
+// would turn every bad URL into a soft 200.
+{
+  "name": "ejcarchitecture-v1",
+  "compatibility_date": "2026-08-24",
+  "assets": {
+    "directory": ".",
+    "html_handling": "auto-trailing-slash"
+  }
+}

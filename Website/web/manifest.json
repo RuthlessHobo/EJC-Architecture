@@ -1,0 +1,2054 @@
+{
+  "generatedBy": "tools/build_web_images.py",
+  "widths": [
+    640,
+    1280,
+    1920,
+    2560
+  ],
+  "format": "webp",
+  "projects": [
+    {
+      "slug": "1-b-and-b-clubview",
+      "name": "1. B&B Clubview",
+      "images": [
+        {
+          "slug": "intro-sketch-b-and-b-clubview",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "1. B&B Clubview/1_Intro sketch - B&B Clubview.png",
+          "width": 1536,
+          "height": 1024,
+          "aspectRatio": 1.5,
+          "masterBytes": 3185762,
+          "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBACdASoYABAAPt1apkyopSOiMAgBEBuJZQDA3Yvg3285YjkyXR6/zEM2AAD+7bIhzE2mqNfUH9i9un3eyIeiZi7k3A7fw6OQynL0+HdFFmpXJBxPoekWEBefZi/+gdGsHwxWBjlp4XRt09g1OvLReHGQS3XuF3rqmljVtnLcSEfvz8JWaOocmBuhEIQ1fWyBq/swlHWHPErIUQNXFQAR37PKTZcAAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 61304,
+              "src": "1-b-and-b-clubview/intro-sketch-b-and-b-clubview-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "bytes": 231466,
+              "src": "1-b-and-b-clubview/intro-sketch-b-and-b-clubview-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-01",
+          "role": "render",
+          "order": 2,
+          "master": "1. B&B Clubview/2_Render 01.png",
+          "width": 1673,
+          "height": 940,
+          "aspectRatio": 1.7798,
+          "masterBytes": 2617666,
+          "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAABQBACdASoYAA0APt1apkyopSOiMAgBEBuJZQCdMoMsdD9216GwlA30J4AAAP3FjPBcNrRhhL1yqBm8Wa5iFNLUWBgsAykAorUooC73eS/61q6G8ptFQmqb45qL0kRJa0kZJGf3+awcMVSvu1ZEdtd4CJgPZ5zOkPtGOvpFZvs5JxeR9nMDHfxG5+9QlDBgxeoRuRtgAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 43936,
+              "src": "1-b-and-b-clubview/render-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 719,
+              "bytes": 159098,
+              "src": "1-b-and-b-clubview/render-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-02",
+          "role": "render",
+          "order": 2,
+          "master": "1. B&B Clubview/2_Render 02.png",
+          "width": 1944,
+          "height": 809,
+          "aspectRatio": 2.403,
+          "masterBytes": 2577450,
+          "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADQAwCdASoYAAoAPt1apkyopSOiMAgBEBuJQBOmUABAYqgRZkkIWgAA/Dx16L4tRteSZoY8u1yndrI+fIbg39E/HrdNcaheCXMbXoYR38QxZrpmta6X8ZRciNkkdVS4ePVPjUkqlOp3sUBR12VLiON1yrBAAU97xX/9dE0GcRb+YlEihgA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 266,
+              "bytes": 26872,
+              "src": "1-b-and-b-clubview/render-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 533,
+              "bytes": 102282,
+              "src": "1-b-and-b-clubview/render-02-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 799,
+              "bytes": 201504,
+              "src": "1-b-and-b-clubview/render-02-1920.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-03",
+          "role": "render",
+          "order": 2,
+          "master": "1. B&B Clubview/2_Render 03.png",
+          "width": 1673,
+          "height": 940,
+          "aspectRatio": 1.7798,
+          "masterBytes": 2589354,
+          "lqip": "data:image/webp;base64,UklGRqAAAABXRUJQVlA4IJQAAADQAwCdASoYAA0APt1cp0yopSOiMAgBEBuJQBOgAtwi96qePvVqIwAA/sKGwNS1EKq45Qi984eQ3bdI62e+ti4filFJfSO4gXhcYhrM054YqBoJF3lQ+GxqR8tz3L6A8OUg3DehGgkTcC/MlAkfq1A7998jeMtDJVnpOBH7m8L6J1sWK4eouF20RvMgj74M/zroQAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 37144,
+              "src": "1-b-and-b-clubview/render-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 719,
+              "bytes": 142588,
+              "src": "1-b-and-b-clubview/render-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-04",
+          "role": "render",
+          "order": 2,
+          "master": "1. B&B Clubview/2_Render 04.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2467775,
+          "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAADQBACdASoYAA4APt1apkyopSOiMAgBEBuJYwCdMoAlsxfYHIrO0sp84PBkYtW8AAD+ih41CJf23TSF8toIl3xBeHx9OgRLqI4eFRy/IfBdeHiEinkx/x8otSte42kzaOwGF3IP1kGFDiX1GB7g7H5JYV6tSZqFr3GVr8L+BjXFfe0HGcPpLzSTBXq5v1UVOSgCwqzSvm91JDy5DkpaU5AA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 38122,
+              "src": "1-b-and-b-clubview/render-04-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 137390,
+              "src": "1-b-and-b-clubview/render-04-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "1. B&B Clubview/4_Floorplan 01.png",
+          "width": 1434,
+          "height": 925,
+          "aspectRatio": 1.5503,
+          "masterBytes": 2981545,
+          "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAACwBACdASoYAA8APt1apkyopSOiMAgBEBuJZQCo9dwLh3anN4CYK6NZQDCqORQ4APl3vhQ343QB3fuRON3cHkeQPYtIe+wFk2DYgPWkUBeJJl2gK7rxLxubXXXy8IDoXC0HO0SfX8R5AZTlooPe8/LetXAu0plbL4ELPMNkbEL0FBk/23sG9A+aT02rJUNS46Tgq7uYDfTPTgU4AAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 413,
+              "bytes": 89326,
+              "src": "1-b-and-b-clubview/floorplan-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 826,
+              "bytes": 321862,
+              "src": "1-b-and-b-clubview/floorplan-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-02",
+          "role": "plan",
+          "order": 4,
+          "master": "1. B&B Clubview/4_Floorplan 02.png",
+          "width": 1320,
+          "height": 840,
+          "aspectRatio": 1.5714,
+          "masterBytes": 2051337,
+          "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAACQAwCdASoYAA8APt1cpkyopSOiMAgBEBuJZQAAWk1UNahtvrpgAP7zxkjIw83vPcaDBpzb36LkViCTQdUlMQbwGve1f0uaVFREQeuMqH+gxd1T0JFsCI7i6Kug3FdFRR16Xugv7Pu7xMtaY8pYwB87+qArZ3EK4PO5O3VukhxAu0RP7J1YoAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 407,
+              "bytes": 53910,
+              "src": "1-b-and-b-clubview/floorplan-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 815,
+              "bytes": 197460,
+              "src": "1-b-and-b-clubview/floorplan-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "site-plan-00",
+          "role": "plan",
+          "order": 4,
+          "master": "1. B&B Clubview/4_Site Plan 00.png",
+          "width": 1446,
+          "height": 810,
+          "aspectRatio": 1.7852,
+          "masterBytes": 2796403,
+          "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABwAwCdASoYAA0APt1apkyopSOiMAgBEBuJYgCdABtIoGJhbVAA/sk7gpkKr7lrKnDmkN8/u8gce8PZvayo7Xbui9DxsEnsy/tWCVmA1QeGvdwrb00W1WkQ6QrsL2PCeRCzVfpW4530qJUubjjM8QFcSCHZKftaQq36dOOFH9YbjqbzOQAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 359,
+              "bytes": 80716,
+              "src": "1-b-and-b-clubview/site-plan-00-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 717,
+              "bytes": 322288,
+              "src": "1-b-and-b-clubview/site-plan-00-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "1. B&B Clubview/5_Elevation 01.png",
+          "width": 1708,
+          "height": 921,
+          "aspectRatio": 1.8545,
+          "masterBytes": 2500182,
+          "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADwAwCdASoYAA0APt1cp0yopSOiMAgBEBuJZQC2yCHOLsyLQkgER1EAAP7zc1+QusvOFrIS7Han7WowlRTWWPGu85rQxWNx2LpWvOKZQZ0BI+tdkFQzol4+tlfFVB6vaa6sjm5jAKjA9SxWfH+1iIRyWo5vILiI3KQvLBFWPHto45rNJn7MsxXALkzBAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 345,
+              "bytes": 52230,
+              "src": "1-b-and-b-clubview/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 690,
+              "bytes": 197958,
+              "src": "1-b-and-b-clubview/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "1. B&B Clubview/5_Elevation 02.png",
+          "width": 1835,
+          "height": 857,
+          "aspectRatio": 2.1412,
+          "masterBytes": 2674514,
+          "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoYAAsAPt1cp0yopSOiMAgBEBuJZwAAUANbDdvmWbxaQAAA/vAWdLl57/dFku9VrhPAwsGe+iDw/A4r16WJ+8doirlvRNSkwXqxsv1yb2XvA9S+dKqnB7PVyuYiTlilFrCWLuSTpN7Ls+Ffb9VeJzmP6se1Bu0JcsI7/6APifaGoAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 299,
+              "bytes": 51702,
+              "src": "1-b-and-b-clubview/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 598,
+              "bytes": 201004,
+              "src": "1-b-and-b-clubview/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view",
+          "role": "axo-view",
+          "order": 6,
+          "master": "1. B&B Clubview/6_Axo view.png",
+          "width": 11362,
+          "height": 7834,
+          "aspectRatio": 1.4503,
+          "masterBytes": 15443255,
+          "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQBACdASoYABEAPt1iqE4opaOiMBgIARAbiWkAAC52Bqm4Syp+edRwBHAAAP70y5RQr6EVF9MorUSqvOfFwDoBW5L4syZLLqdJPs3FlApl9ktzReauL38jYs18Yebpoz+qaofc7t2De14AAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 441,
+              "bytes": 13194,
+              "src": "1-b-and-b-clubview/axo-view-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 883,
+              "bytes": 62112,
+              "src": "1-b-and-b-clubview/axo-view-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1324,
+              "bytes": 140440,
+              "src": "1-b-and-b-clubview/axo-view-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1765,
+              "bytes": 237070,
+              "src": "1-b-and-b-clubview/axo-view-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "1. B&B Clubview/7_Axo Cut 01.png",
+          "width": 11357,
+          "height": 8650,
+          "aspectRatio": 1.3129,
+          "masterBytes": 20906317,
+          "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoYABIAPt1cqU0opSQiKA1REBuJaQAD4/ELAI+sTJPsA9RkXS2sAAD+9MuUVvbU5Olv5Rhvu2i1p5/q+tkI5pI54uOridP3nS9x/3NhyPXMBVCCfcpSkX3XlTgxh4bNvpx3Jy+nGZxF60jMbx7kcKkAA3/jgAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 487,
+              "bytes": 16924,
+              "src": "1-b-and-b-clubview/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 975,
+              "bytes": 71638,
+              "src": "1-b-and-b-clubview/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1462,
+              "bytes": 170468,
+              "src": "1-b-and-b-clubview/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1950,
+              "bytes": 284900,
+              "src": "1-b-and-b-clubview/axo-cut-01-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-02",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "1. B&B Clubview/7_Axo Cut 02.png",
+          "width": 11357,
+          "height": 8139,
+          "aspectRatio": 1.3954,
+          "masterBytes": 17104656,
+          "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAAAwBACdASoYABEAPtVYoUyoJSMiMAwBABqJaQAD5GoOAPIyEbL/xCgxQ9gA/vYHaL3cDo/+Lbeoi1PHzyYbrfOYo3I/94S3dOxVsaRwS1NXlwDTrEkdkL9AO1SaV7GUJBHmnO2r8cDhcTjdML4Z+Trod3iy4pioXWMf9GXrhQAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 459,
+              "bytes": 17652,
+              "src": "1-b-and-b-clubview/axo-cut-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 917,
+              "bytes": 61616,
+              "src": "1-b-and-b-clubview/axo-cut-02-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1376,
+              "bytes": 139696,
+              "src": "1-b-and-b-clubview/axo-cut-02-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1835,
+              "bytes": 228382,
+              "src": "1-b-and-b-clubview/axo-cut-02-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "2-additions-and-alterations-montana",
+      "name": "2. Additions & Alterations Montana",
+      "images": [
+        {
+          "slug": "intro-sketch-additions-and-alterations-montana",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "2. Additions & Alterations Montana/1_Intro sketch - Additions & Alterations Montana.png",
+          "width": 1410,
+          "height": 1116,
+          "aspectRatio": 1.2634,
+          "masterBytes": 3128065,
+          "lqip": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAACQBQCdASoYABMAPt1mq1EopSOiqAgBEBuJQBf95YJzcK59+4sMUjYpLEzm2E3jQ6ZttCTQAAD+4Ns1ta+O0wGWCxKhQoaEzP+pIp4ehvL2cyDv7FQrOqfIp/Ny+6iNl/JTBGf7YAFeE5bWNNflkq3dZyfBaJras9M09DQGRrnuIYLN9goclYZv5Sag0jkRi2g3eEbx2iBx7sRiqYZ7Ih+WfyNjxbWKXIHfaYowtnh5qvtt6QS4Em/lmVKup9QCvn2PJYrsK14fefRyHwJB5b3+NSUERcYa5VIAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 507,
+              "bytes": 80448,
+              "src": "2-additions-and-alterations-montana/intro-sketch-additions-and-alterations-montana-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 1013,
+              "bytes": 291676,
+              "src": "2-additions-and-alterations-montana/intro-sketch-additions-and-alterations-montana-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-01",
+          "role": "render",
+          "order": 2,
+          "master": "2. Additions & Alterations Montana/2_Render 01.png",
+          "width": 1491,
+          "height": 1055,
+          "aspectRatio": 1.4133,
+          "masterBytes": 2849364,
+          "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBQCdASoYABEAPt1aqU6opKOiMBgIARAbiWMAvkmMsmVuvtkMJmKfJ2pGgxhuNGTG6fsoyAD+7ERVlmAoVUoEbr9xwC0NPMqqiMuf0ftdgUhZ3PrjMyVlKxluq9231h/DoHWKfopjzTZYEL6PMs1j13FUdt0TgDYXYeWslHd4FWvCOKMJis43pxYaqXCwzY1prFg1pPLx1EJdBmolMAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 453,
+              "bytes": 54944,
+              "src": "2-additions-and-alterations-montana/render-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 906,
+              "bytes": 205898,
+              "src": "2-additions-and-alterations-montana/render-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-02",
+          "role": "render",
+          "order": 2,
+          "master": "2. Additions & Alterations Montana/2_Render 02.png",
+          "width": 1491,
+          "height": 1055,
+          "aspectRatio": 1.4133,
+          "masterBytes": 2506828,
+          "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAADQBACdASoYABEAPt1eqE6opSOiMBgIARAbiUAAfI0hqVSY/9bY8MjSq9zLjvNoAAD9AoAaEmeo1lCSaqNlPpmUFx98ljPrKkJtQZhnM/tnOwxDTyuuJxopCIVB3ZOAXAvysGaAgArFp7JHlVLM4bOVxXP4diNa4vMm1AXNPoBIn0GdHgyeC7kDkmV8pMR2pRSmXkjgFHAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 453,
+              "bytes": 41348,
+              "src": "2-additions-and-alterations-montana/render-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 906,
+              "bytes": 150666,
+              "src": "2-additions-and-alterations-montana/render-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-03",
+          "role": "render",
+          "order": 2,
+          "master": "2. Additions & Alterations Montana/2_Render 03.png",
+          "width": 1491,
+          "height": 1055,
+          "aspectRatio": 1.4133,
+          "masterBytes": 2874049,
+          "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAADwBACdASoYABEAPt1iqU+opSOiKAqpEBuJZQCsAYvqcZmyFdn2HtM5f9jNGqZuoAAA/ulef8JEke8CICOlia3tBtW3t7Y2aDLnsl6oe7Bt1l+cyUGQ2Ku/DyBSKbRBpHEaQFvUcBcnevLbpEnJ7jX3zAtnaivTMfaPaKC9+dPit4NKioy2IypOBqnYiWaNJBMGodmZXPDR+51MHEu59AGPn62YNorAlcRWSbi97Wwwee3vtwAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 453,
+              "bytes": 64024,
+              "src": "2-additions-and-alterations-montana/render-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 906,
+              "bytes": 219082,
+              "src": "2-additions-and-alterations-montana/render-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "2. Additions & Alterations Montana/4_Floorplan 01.png",
+          "width": 1434,
+          "height": 922,
+          "aspectRatio": 1.5553,
+          "masterBytes": 3193033,
+          "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBACdASoYAA8APt1apkyopSOiMAgBEBuJYwC7ABugrF39xZg5i5gdAAD+xDMdaGtfeUvwkJlv2CAXU91WYmIjm81LLyZ4QOezlAyyPMVVkmG5JId+4QFupLM64zXFLi8IU8yLioEFSWGbkjHDGbQeidtUcaoKh73z0/q+AkuLhk0yemM3umOn+Wq99cf/uy3CiCQA7ZJQ6W7xpwAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 411,
+              "bytes": 92986,
+              "src": "2-additions-and-alterations-montana/floorplan-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 823,
+              "bytes": 364196,
+              "src": "2-additions-and-alterations-montana/floorplan-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "2. Additions & Alterations Montana/5_Elevation 01.png",
+          "width": 1600,
+          "height": 983,
+          "aspectRatio": 1.6277,
+          "masterBytes": 2423492,
+          "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABQBACdASoYAA8APt1cpkyopSOiMAgBEBuJZQDA3YxO39wG0w5k5sOfxKwAAP7zjyca9uZk1OTN8OGUJVeVR0fbB4+MhKCHLE9ILNLlQt1ZsshEN+TvBX9SxhweHqtcnQONYxfpdzAk19g2syFZ9PMFPg3pBwJtp1j1/uubbSWWuJEF/D8asyPwiuceCjAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 393,
+              "bytes": 52346,
+              "src": "2-additions-and-alterations-montana/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 786,
+              "bytes": 206290,
+              "src": "2-additions-and-alterations-montana/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "2. Additions & Alterations Montana/5_Elevation 02.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2231371,
+          "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoYAA4APt1cpkyopSOiMAgBEBuJZQC+SCHevi+QHYSUz8Os8AAA/vTS1RvKlbUwhBinUez97CHwZxNlWxvnGloFrQCluQ1GJto0k7Uv2kHWplmNNbu7qeR/7xa5CRBdmKTb0yQw+JMRBAlHFDBQK/LpbDwAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 41356,
+              "src": "2-additions-and-alterations-montana/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 162248,
+              "src": "2-additions-and-alterations-montana/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view",
+          "role": "axo-view",
+          "order": 6,
+          "master": "2. Additions & Alterations Montana/6_Axo view.png",
+          "width": 10891,
+          "height": 6795,
+          "aspectRatio": 1.6028,
+          "masterBytes": 11908538,
+          "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYAA8APt1apkyopSOiMAgBEBuJaQAAW+zerTXJS/O9vVgAAAD+9NDopdmbIUrkang9jhgl4u9HjajQOHRIOpBU/RfhY3lW4ezHS0yJUtrU/HCqCc1LowyZXe12wComTjXP1p6+ACyhrM+RZ87QAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 399,
+              "bytes": 16118,
+              "src": "2-additions-and-alterations-montana/axo-view-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 799,
+              "bytes": 57778,
+              "src": "2-additions-and-alterations-montana/axo-view-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1198,
+              "bytes": 119264,
+              "src": "2-additions-and-alterations-montana/axo-view-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1597,
+              "bytes": 190522,
+              "src": "2-additions-and-alterations-montana/axo-view-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "2. Additions & Alterations Montana/7_Axo Cut 01.png",
+          "width": 10867,
+          "height": 7725,
+          "aspectRatio": 1.4067,
+          "masterBytes": 14563973,
+          "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAAAwBACdASoYABEAPt1aqE8opKOiMBgIARAbiWkAAC5Dr6TwpNEyphg4KwAA/vTRVf34yzjOUqXoNlg0hYxmxZkR02cc0xNyoGa18Mc/bR/+BVUEoTidA7jsx8/1GX5ZF02NgB9fuFWvVDVx563dkqBM2+fKmKzuoAAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 455,
+              "bytes": 24246,
+              "src": "2-additions-and-alterations-montana/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 910,
+              "bytes": 80624,
+              "src": "2-additions-and-alterations-montana/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1365,
+              "bytes": 161870,
+              "src": "2-additions-and-alterations-montana/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1820,
+              "bytes": 257858,
+              "src": "2-additions-and-alterations-montana/axo-cut-01-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "3-erf-94-cradle-ridge-estate",
+      "name": "3. Erf 94 Cradle Ridge Estate",
+      "images": [
+        {
+          "slug": "intro-sketch-erf-94-cradle-ridge-estate",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "3. Erf 94 Cradle Ridge Estate/1_Intro sketch - Erf 94 Cradle Ridge Estate.png",
+          "width": 1536,
+          "height": 1024,
+          "aspectRatio": 1.5,
+          "masterBytes": 3223657,
+          "lqip": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAACQBACdASoYABAAPt1apkyopSOiMAgBEBuJZQDE2Yv+7aVcEWLsWaq3dNX14KAA/vOWCxRiZs2za4ctQI5vDsRm+PThXdw3KH2zitOmUqiO22s+TXvqa2ABZbjD9RKQOpmbPu21uI10fYlp2TJVLvWm6BN/Gr8RXvZWTrBSqRA3sjPP7/Tf8cORYCuszrxAWt8n57wbOz3yfRKiDyofv4dEfEx+qmGYDJldVUjRqFsICMKQNACbJ2GAAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 56508,
+              "src": "3-erf-94-cradle-ridge-estate/intro-sketch-erf-94-cradle-ridge-estate-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "bytes": 217880,
+              "src": "3-erf-94-cradle-ridge-estate/intro-sketch-erf-94-cradle-ridge-estate-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "arender-01",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_aRender 01.png",
+          "width": 1536,
+          "height": 1024,
+          "aspectRatio": 1.5,
+          "masterBytes": 2262624,
+          "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABwBACdASoYABAAPt1apkyopSOiMAgBEBuJZQCdAYvWurN/8BVZ9xMdqv+CAAD+yNlUyp3vB8gk5VlTYZ9b6cqgDmelSBYMctZgrA5BtepobBsxn14vC5nPHiDI39hti/z8V68L58YR55qysTrUIpBcatEHMI4Ly3DFce49OhmXCi9yo9nk2dS+Aq8ySY9fysvd6Ah+aj8fRFM3gKS8gWUEUDQuP3p3AAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 19262,
+              "src": "3-erf-94-cradle-ridge-estate/arender-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "bytes": 73388,
+              "src": "3-erf-94-cradle-ridge-estate/arender-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "arender-02",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_aRender 02.png",
+          "width": 1820,
+          "height": 864,
+          "aspectRatio": 2.1065,
+          "masterBytes": 2195777,
+          "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQAwCdASoYAAsAPt1apkyopSOiMAgBEBuJZQC3uCBfWh+fapQ38oAA/rfIxBoqd3HWjHdgnWw+RN8GE0Lv5oUy2SvifXWRMNif5y/blZIevcJZ+iVIvDRRkDQD+Ov/tm/gfwf/kGzj2PP8pw53CEk1sIk94BNeGgAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 304,
+              "bytes": 16190,
+              "src": "3-erf-94-cradle-ridge-estate/arender-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 608,
+              "bytes": 63360,
+              "src": "3-erf-94-cradle-ridge-estate/arender-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "arender-03",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_aRender 03.png",
+          "width": 1535,
+          "height": 1024,
+          "aspectRatio": 1.499,
+          "masterBytes": 2163626,
+          "lqip": "data:image/webp;base64,UklGRrAAAABXRUJQVlA4IKQAAACQBACdASoYABAAPt1cpkyopSOiMAgBEBuJQBOgMXNckyzknD2vqa0aU3FOF4AA/rXu0me5VBl/qic/K7gZ2Y4pj3DQB2RjzcOxpfEz+OXxlP9Mh9cV4HmPWIHy/0n2ptewkzP3RAwsTOJKe8X+oIgMPT9/bf9tCD9EFfYdqtGtyLAZYLhz0Y2zJPr0LJNzYj/qv1L8ftYLag1lA0hNE2RUTJ8AAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 21614,
+              "src": "3-erf-94-cradle-ridge-estate/arender-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 854,
+              "bytes": 78050,
+              "src": "3-erf-94-cradle-ridge-estate/arender-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "detail-shot-01",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_Detail shot 01.jpeg",
+          "width": 935,
+          "height": 1247,
+          "aspectRatio": 0.7498,
+          "masterBytes": 152335,
+          "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQBACdASoYACAAPtVaoEyoJSMiMAwBABqJZQC2+yGCam/BvefqUGS+XVl5AQIgAAD2UHoo0vf6PbUl/mhEhhLR2IZBdpUueqBxnaMD/7EDXfV0ymGvhKzHG4N61f0G1IPtME+SXrEFbc9MiBhwgquUVYUakwC5enqJTBAonfv/SGS3HXii7RIU2r8mgAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 854,
+              "bytes": 18856,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-01-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "detail-shot-02",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_Detail shot 02.png",
+          "width": 1448,
+          "height": 1086,
+          "aspectRatio": 1.3333,
+          "masterBytes": 2005922,
+          "lqip": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAADQBACdASoYABIAPt1iq08opSQiKAqpEBuJZgCo9Yxia4ePS4lrsOHsQlJkwKrt8AD+kDJl/xzpiwumwkGcftgkU2J1ZG7NGOrx3nxU3Uhh+0BTl6cKzKBfRpdChiAn2t/Itqves/6zFL/Fj4N2AZNDfYjkXFBCJOCXeEd9UzwxVTHHlONFxjNXPxa6pbdvzCpA1fQnmsAPEJs1RcaK5/JGdRSEd10Z2yz0yfnYegOw2dlHpFATrCHxAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 480,
+              "bytes": 26394,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 960,
+              "bytes": 89816,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "detail-shot-03",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_Detail shot 03.png",
+          "width": 1448,
+          "height": 1086,
+          "aspectRatio": 1.3333,
+          "masterBytes": 2541304,
+          "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAACQBACdASoYABIAPt1mq1EopSOiqAgBEBuJZQC/OBBXqp7sTvYbmy76vACl6CgA+E17PcETwQwjHZismtqovrYz4Dfw58BXV+L+OajYuONw84d02uykeiCMvhtf2L1wpW2Xdjr6itjvxSh4j6bGToSc2mV8pKWXafGfuZLXDO1p1hQhlIOtLWMf6dZNb2JRRfIAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 480,
+              "bytes": 28596,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 960,
+              "bytes": 124142,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "detail-shot-04",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_Detail shot 04.jpeg",
+          "width": 960,
+          "height": 1280,
+          "aspectRatio": 0.75,
+          "masterBytes": 105268,
+          "lqip": "data:image/webp;base64,UklGRhgBAABXRUJQVlA4IAwBAABwBgCdASoYACAAPt1ep02opSOiKA1REBuJYgCdMt+9QfbPCWRhfGQLJ6O1q+H9XMhZgC2c0LCbgO10zAAA/sWdcU7VK2gdHICRsw7DyDtfSdxf0WFrhPycKFoQ/P49kR2xcFaWw0H5LVvVEEyKP4nJZZGRc2T9n/sPDpfg0AB4ShKsq5lqRwq5PpSjyazekNDncamzghKO2VpF0lCChKaRzHYMyxakVIOFHvWpph3U7xA2rN26VpkdKGOsEolyuoAVk/mP+s9y4G8vU9hlFeHjkL8kmWB6jlw3DaEB69T2Mix0pnKhcTFhpb/NdpHfINu14GHFmYmdb/zqCUZiR1NoyMf28Czi+wINAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 853,
+              "bytes": 27050,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-04-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "detail-shot-05",
+          "role": "render",
+          "order": 2,
+          "master": "3. Erf 94 Cradle Ridge Estate/2_Detail shot 05.jpeg",
+          "width": 1600,
+          "height": 1200,
+          "aspectRatio": 1.3333,
+          "masterBytes": 219740,
+          "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAADQBACdASoYABIAPt1gqEyopaQiMAgBEBuJYwCo9CKrdmvDEBBlViOb+n/VyyLuQAD+kbu/QyF9J3hZXGrA6VSbQkm1SiocOAhp9pED9JnTE5FV1HwWVijsUwcsEvmer/BLZL8W4Qhx5GYVgqQuC7kQpbwC8mAAKiFCZomyGngGIZvGgCR8nCASGDjvyNIyfJJroyaJaWEuApOcs3ER3GJnB44J5oAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 480,
+              "bytes": 26722,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-05-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 960,
+              "bytes": 84208,
+              "src": "3-erf-94-cradle-ridge-estate/detail-shot-05-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "3. Erf 94 Cradle Ridge Estate/4_Floorplan 01.png",
+          "width": 996,
+          "height": 1299,
+          "aspectRatio": 0.7667,
+          "masterBytes": 2748287,
+          "lqip": "data:image/webp;base64,UklGRjYBAABXRUJQVlA4ICoBAABwBgCdASoYAB8APt1apUyopSOiMAgBEBuJZQC07rZG738DCgOZEdMKyZGL7HNTMujD9NRudkVmJKPj4sAA+Xz9PALc9AaifRl81TnFW9Z27swoWb3ji/U+ILGNSVPBETkDjAnMa4kq6jE9LriXje6s+6rQ64fP/YAQMlYFFB6m+dxwNUirZnnt3weEi1PsQSYIVfRhz+wV/mI5ltA3rvNezcMtjeU9jhiT4+bemH2f86/F9I0TG99am3WS9e7UBsYgfncyTVZrRcEkokSgXOZMjbnbZAoaE0pforGM0fltR8QeDs3EC1d65WSR6PoKqYJzDl2aBoHzH/aXyK3u8acolit/X0X2q9jA6FLwGxHmwu8NepIXIN++bAv3CN8e/7kjPx23ZzbZAwAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 835,
+              "bytes": 154832,
+              "src": "3-erf-94-cradle-ridge-estate/floorplan-01-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "3. Erf 94 Cradle Ridge Estate/5_Elevation 01.png",
+          "width": 1684,
+          "height": 934,
+          "aspectRatio": 1.803,
+          "masterBytes": 2813852,
+          "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBACdASoYAA0APt1apkyopSOiMAgBEBuJZwATgADWnV9OP7qX0BUZTQAA/vOBA3eQBQecUFAPakZhwa9EF6MFCLvNWKFhPGLmKxeaUT/f855giS+JlyWToXcxAu9qjwj4A+ykLSvuhZdXCe0eiFk4bK8BkddY8jyLatJz7K0t7wMfDDsjdTZkXtaZjhbIIPL/yYveogBfh5AA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 355,
+              "bytes": 59798,
+              "src": "3-erf-94-cradle-ridge-estate/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 710,
+              "bytes": 235014,
+              "src": "3-erf-94-cradle-ridge-estate/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "3. Erf 94 Cradle Ridge Estate/5_Elevation 02.png",
+          "width": 1572,
+          "height": 1001,
+          "aspectRatio": 1.5704,
+          "masterBytes": 2449741,
+          "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAQBACdASoYAA8APt1apkyopSOiMAgBEBuJZwAAWo5QM2G9fha/poFRwAD+83WfpUnJakasQQglRealgAElCtFjFUF+7DUosGT77uhekvg0vzG5IX3p6fFPHr/Br+72IVwlNkDpd47QNduHt+t5gAI1wF/BAWiWZCRlBom4hEdhwQKcZQT8A1eKvYAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 408,
+              "bytes": 58394,
+              "src": "3-erf-94-cradle-ridge-estate/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 815,
+              "bytes": 226344,
+              "src": "3-erf-94-cradle-ridge-estate/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view",
+          "role": "axo-view",
+          "order": 6,
+          "master": "3. Erf 94 Cradle Ridge Estate/6_Axo view.png",
+          "width": 3872,
+          "height": 4327,
+          "aspectRatio": 0.8948,
+          "masterBytes": 1679362,
+          "lqip": "data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAACQBQCdASoYABsAPt1cpkyopSOiMAgBEBuJZwDQGYx2320v7zrWpNRC6jb4phu477hXOWYfAAD+9Mue080SmiLmJZjIkz6P4jKJA7hfmWSmZ9/W8YX5qMDHCQ9/6MChMb7juy3+b8Fn465zCg5YnPWf+puStvwkE93qEdAcumOPdR6qDcXrORNncI6Fc3QZza4gLZxXhZj/ZgF6Qd+4qLmgAjMWaFBcXf6qv3ecCv2Qp7KQ2tLF9ogA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 715,
+              "bytes": 33554,
+              "src": "3-erf-94-cradle-ridge-estate/axo-view-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 1430,
+              "bytes": 116650,
+              "src": "3-erf-94-cradle-ridge-estate/axo-view-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 2146,
+              "bytes": 218530,
+              "src": "3-erf-94-cradle-ridge-estate/axo-view-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 2861,
+              "bytes": 324348,
+              "src": "3-erf-94-cradle-ridge-estate/axo-view-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "3. Erf 94 Cradle Ridge Estate/7_Axo Cut 01.png",
+          "width": 3872,
+          "height": 3979,
+          "aspectRatio": 0.9731,
+          "masterBytes": 1968187,
+          "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAAAwBQCdASoYABkAPt1orVEopaQiqAgBEBuJZwAD5YkKgthKsOZ/mZEYfjsU+/mJTZFhwAD+9NEJqWMD9VBw8+XKKQHEKAa1garZ7OZIaykkqxVX1ql376SZq1pHpKbGdRlQ7dRHUiSEys0LWvEKIXSI3QAMUpqVJdiudapRy//GjjzaeLwkDHMFfVFExFNUzwIQ3zOblUkd+6WbJr3Q4RQXawz76MPJ1dQ5Ndhuo1+fUF5ITbAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 658,
+              "bytes": 38776,
+              "src": "3-erf-94-cradle-ridge-estate/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 1315,
+              "bytes": 121256,
+              "src": "3-erf-94-cradle-ridge-estate/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1973,
+              "bytes": 220690,
+              "src": "3-erf-94-cradle-ridge-estate/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 2631,
+              "bytes": 329342,
+              "src": "3-erf-94-cradle-ridge-estate/axo-cut-01-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "4-erf-81-cradle-ridge-estate",
+      "name": "4. Erf 81 Cradle Ridge Estate",
+      "images": [
+        {
+          "slug": "intro-sketch-erf-81-cradle-ridge-estate",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "4. Erf 81 Cradle Ridge Estate/1_Intro sketch - Erf 81 Cradle Ridge Estate.png",
+          "width": 1535,
+          "height": 1024,
+          "aspectRatio": 1.499,
+          "masterBytes": 2809042,
+          "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoYABAAPt1apkyopSOiMAgBEBuJYwC/OCB8xzV4FcPX35hAAAD+88iKYucoz0rwac95GwDwruqjrqh4J9pgA5K5/RHtXRO0QMNt0drdA1ZwkykJHFHUQRRBtg8eYOwfG07b+hLAShUyO7fWpxzZxra9+BmWJz/ZFC1Nm7if+yhK6SATlR+jHt8AAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 44972,
+              "src": "4-erf-81-cradle-ridge-estate/intro-sketch-erf-81-cradle-ridge-estate-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 854,
+              "bytes": 174094,
+              "src": "4-erf-81-cradle-ridge-estate/intro-sketch-erf-81-cradle-ridge-estate-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-01",
+          "role": "render",
+          "order": 2,
+          "master": "4. Erf 81 Cradle Ridge Estate/2_Render 01.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2330267,
+          "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAADQAwCdASoYAA4APt1cpkyopSOiMAgBEBuJQBOmUABqj4AI3srwWeAA99xM9JykKOMGd864m3lpFpUGBFGx7oZNjzWQk8fGEQqIlKaaEkfmH/lypkOM/RF/ER+3lTo5nav+U/ToMDdsTmoF+Nkk+v6GwHcY4Ns1vgxMWvsSaAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 32116,
+              "src": "4-erf-81-cradle-ridge-estate/render-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 107336,
+              "src": "4-erf-81-cradle-ridge-estate/render-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-02",
+          "role": "render",
+          "order": 2,
+          "master": "4. Erf 81 Cradle Ridge Estate/2_Render 02.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2554026,
+          "lqip": "data:image/webp;base64,UklGRrIAAABXRUJQVlA4IKYAAABwBACdASoYAA4APt1apkyopSOiMAgBEBuJZACdMoMYA0hNMwA/AkgQjnfkQAD+740HQ+i7ShOO2aHQuBVV24h39lftUMv31yZIK8ng0MP1ZFcz9jm/jlP0jmSMHlDhcFEjSPtsZmHCz/V2VQ4vcBNhWAbTtpyaHWijhX6L7tuyyI86lka+jq04kNnrDknl4L9bN45mNJAHWa3g0NqK92yIeMUa7gAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 42334,
+              "src": "4-erf-81-cradle-ridge-estate/render-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 139876,
+              "src": "4-erf-81-cradle-ridge-estate/render-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-03",
+          "role": "render",
+          "order": 2,
+          "master": "4. Erf 81 Cradle Ridge Estate/2_Render 03.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2115103,
+          "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAABwBACdASoYAA4APt1cpkyopSOiMAgBEBuJZACdMoGv/gPKvvHJifdZITgpPAD+8SMMXKzJi0zmFRhf9D6xGXSvuav21K5qfW+9XTiAFhrIRDpUEkCQyxoUh2RhR+uH2Wz2hJXj9IOrfZlxfoJn/em63n6EY0X+3nhov1uMv/yUDauBvFyJP8yDSnKDX6tyLzX/gJ8ldPkwn4TsAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 23924,
+              "src": "4-erf-81-cradle-ridge-estate/render-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 74222,
+              "src": "4-erf-81-cradle-ridge-estate/render-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-04",
+          "role": "render",
+          "order": 2,
+          "master": "4. Erf 81 Cradle Ridge Estate/2_Render 04.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2433187,
+          "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAABQBACdASoYAA4APt1apkyopSOiMAgBEBuJZACdMoMYADFhImeCEbKjfzXAAP7vZoRLr3kXL97Nx7KuiFptJPyf8Qji57uvd6uJK6wM/bqPXP78j3WqSzbFee0Q1DjtBW1SlVwrWOeJbyCyxIFpcst0GyY8HwgV7tFWgO45Z4EEGA1Cvmke4WRFeR6sawKATiczBxkWZ+1Zd9NA5X4+NgAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 36526,
+              "src": "4-erf-81-cradle-ridge-estate/render-04-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 122450,
+              "src": "4-erf-81-cradle-ridge-estate/render-04-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-05",
+          "role": "render",
+          "order": 2,
+          "master": "4. Erf 81 Cradle Ridge Estate/2_Render 05.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2256370,
+          "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABQBACdASoYAA4APt1apkyopSOiMAgBEBuJYgCdMoADQw0AX6kFbdfYB0wAAP6QxGqFSmS2Snc/vwMcs7pygY+u9cRUqvIiW9mJ3Cu8RuUzAT9Ib+F76rycAJuutw37hJAn5RxYLqz0cnsyvDI6lE9ebvhzUrvvMCC6/OAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 28982,
+              "src": "4-erf-81-cradle-ridge-estate/render-05-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 97546,
+              "src": "4-erf-81-cradle-ridge-estate/render-05-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "4. Erf 81 Cradle Ridge Estate/4_Floorplan 01.png",
+          "width": 1097,
+          "height": 1434,
+          "aspectRatio": 0.765,
+          "masterBytes": 3209980,
+          "lqip": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAACwBACdASoYAB8APt1gqEyopaQiMAgBEBuJQBYdhA31hQtYroIeKCzniGflfVKQAP7wi0gVNY4voPVTVnG0Fcgcq0/nJdyEiOTS1/XcOjt08lmj7/vHU6d0rDVlrbLNfRsQkhdSVOeO2hWC9TptgJECdEm6S4OHk0JsyS3TVXg85DWkrHu2ldWt7q0PK24yHN+UMDLSNtDsu+j/Dl1kvza7LZvI7g6EnJDnxxDitb4yPhk/ICDT8Wp8n7sshAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 837,
+              "bytes": 167386,
+              "src": "4-erf-81-cradle-ridge-estate/floorplan-01-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-02",
+          "role": "plan",
+          "order": 4,
+          "master": "4. Erf 81 Cradle Ridge Estate/4_Floorplan 02.png",
+          "width": 1055,
+          "height": 1491,
+          "aspectRatio": 0.7076,
+          "masterBytes": 2954844,
+          "lqip": "data:image/webp;base64,UklGRvQAAABXRUJQVlA4IOgAAAAQBgCdASoYACIAPt1ipk2opaOiKqwBEBuJYwC7AmwAcbZFyRAiKDr8bLUSXoRyXxCS65R3//VLtwAA/vHQ1c7zzeiwdW6/QuOEOpTON6OC9xzVm720drrN+uLUQrYHfKqQZiEORgTqEW51n5eeMs5et7/SDIW6XAjUAJNAXj+4aggPMdIvzcPJqJBTBpEcoImIgEB29V42SzrPtaLSHqvEzRKDzRNzlc1bkvYPbfbp73rG4LcvjX+2bXvieFumTbWtuiUW8wTvfpI4wdPXtfLQWiWCv+IMYk2ddCWqFJzZarcgRNE6fgAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 904,
+              "bytes": 166374,
+              "src": "4-erf-81-cradle-ridge-estate/floorplan-02-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-03",
+          "role": "plan",
+          "order": 4,
+          "master": "4. Erf 81 Cradle Ridge Estate/4_Floorplan 03.png",
+          "width": 1054,
+          "height": 1492,
+          "aspectRatio": 0.7064,
+          "masterBytes": 2826359,
+          "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBQCdASoYACIAPt1WpUyopKOiNVgIARAbiWUAzYQWhQ1u2gyIjsN5CRr8xlWYWn6GGCAA/vN+fevxLHCt+zTZuj46Mvm/1ShOX0imKCm/rWJ7Q3pr4f0fQSvzmZWWUzbfQGc+IesfUPmg+f2fRi3/9y0a8R6d7NvV11c1njPOVVo8KtF78m1ZGqndNhk2hDUXvqrUmIOgpUsZylzbj0Yu54D1KUND43qEAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 906,
+              "bytes": 125976,
+              "src": "4-erf-81-cradle-ridge-estate/floorplan-03-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "4. Erf 81 Cradle Ridge Estate/5_Elevation 01.png",
+          "width": 1635,
+          "height": 962,
+          "aspectRatio": 1.6996,
+          "masterBytes": 2656746,
+          "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBACdASoYAA4APt1cp0yopSOiMAgBEBuJYwC7AdwA85uYtLaafMdG0AD+88iARS2BfC0VmuEMLh3nrfH1HvWjpFta5t+eNIidWzG7G8dMZuVh8lTs9LekB3eW1gVb7FYAV2rbCLpkEo8+w39ARMInFWRd1KB9raX63v0g9Wy1Koxg8NsgAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 377,
+              "bytes": 49768,
+              "src": "4-erf-81-cradle-ridge-estate/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 753,
+              "bytes": 194218,
+              "src": "4-erf-81-cradle-ridge-estate/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "4. Erf 81 Cradle Ridge Estate/5_Elevation 02.png",
+          "width": 1424,
+          "height": 1104,
+          "aspectRatio": 1.2899,
+          "masterBytes": 3282300,
+          "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBACdASoYABMAPt1iqU+opSOiKAqpEBuJYwDGfBEl535p3KF2AVcWcmEMDXRwAP7zfmvrZnx6im9Yus7xA3W5z42ilLKamhL1y4mYvdJHbR1/8ssenTj05VntDy4EW5xVRDKK2GSNJ1dorwk66MxkoeLAFzd7lK+zrIg2/qWBoMQRH5BFPK3PrqvW7e/+l+W+nO/XXKNTd0RF43io1dhFXjjVZeWmAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 496,
+              "bytes": 77878,
+              "src": "4-erf-81-cradle-ridge-estate/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 992,
+              "bytes": 324294,
+              "src": "4-erf-81-cradle-ridge-estate/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view",
+          "role": "axo-view",
+          "order": 6,
+          "master": "4. Erf 81 Cradle Ridge Estate/6_Axo view.png",
+          "width": 9532,
+          "height": 6919,
+          "aspectRatio": 1.3777,
+          "masterBytes": 4918939,
+          "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAACwBACdASoYABEAPt1orFCopaQiqAgBEBuJZQAD5VkKggsa4cYJPL5VE4rodfUIAP702+LJ958ldoaGUjOeDMyf7E8UXPgdp0p4z12pL+7pqCni92vxA4U/cYQJO8xFnwKLlw/YUGw5MTXXW1YG1eyae5TIsYNm2bxFTPIjlHvPdyvgwvldWUFpqWIF4w3N/Pye0DO/xvcx6t90U/QAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 465,
+              "bytes": 21088,
+              "src": "4-erf-81-cradle-ridge-estate/axo-view-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 929,
+              "bytes": 72370,
+              "src": "4-erf-81-cradle-ridge-estate/axo-view-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1394,
+              "bytes": 143742,
+              "src": "4-erf-81-cradle-ridge-estate/axo-view-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1858,
+              "bytes": 224864,
+              "src": "4-erf-81-cradle-ridge-estate/axo-view-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "4. Erf 81 Cradle Ridge Estate/7_Axo Cut 01.png",
+          "width": 9532,
+          "height": 6563,
+          "aspectRatio": 1.4524,
+          "masterBytes": 4921125,
+          "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoYABEAPt1orFEopaQiqAgBEBuJZQAALqJUjHQK8CaNxt3QvjGx+ZAA/vTepUeLMuiEt02b28cH/J+NQ6MrXuxmt6RHnXpLg9QoTgQ5Ng/Bkk+p36yvZJAzXtg+/CHY2Kz3tn8vvXW2+CWfRW5qyet9wXt9XfqIr7hJT/FD8WVMohrIAOtPTeBoiVp6lTtOGwGSOAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 441,
+              "bytes": 22368,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 881,
+              "bytes": 75274,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1322,
+              "bytes": 149648,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1763,
+              "bytes": 236720,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-01-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-02",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "4. Erf 81 Cradle Ridge Estate/7_Axo Cut 02.png",
+          "width": 9532,
+          "height": 6563,
+          "aspectRatio": 1.4524,
+          "masterBytes": 4772066,
+          "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAwBQCdASoYABEAPt1orFCopaQiqAgBEBuJZQDM1agAzxarhI4SihNY/B7qXFeJcRmLAAD+9NueMXjH1OW8W0cH9DGS5CyFB+k9DkNp0FmZ6EnxoKTjJb5to0cq1g7P74Dw7I+xaalQTNYQ6Vk28pdxPzIeqzpcmdND6IYuZm9gyIoQz179dUwKWRk4EmLkcEgLb0eCBa3hZ4AA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 441,
+              "bytes": 19648,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 881,
+              "bytes": 67688,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-02-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1322,
+              "bytes": 134646,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-02-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1763,
+              "bytes": 215422,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-02-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-03",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "4. Erf 81 Cradle Ridge Estate/7_Axo Cut 03.png",
+          "width": 9532,
+          "height": 5988,
+          "aspectRatio": 1.5919,
+          "masterBytes": 2386309,
+          "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBACdASoYAA8APt1apkyopSOiMAgBEBuJYwBUftwHM1HznPhVAs21ZK3fiAAA/vTfxKGxS8qthyCrbxk7SoTApZoLd8ZUcUj8LzlRSyvJUmRi5t/sNexB5JUD6LFBG9cpXmo5G4fhTBmCFha9Ig/Kzh4vqVNpQ7rAhY/HCD8Unokad4Z+HPx4bppiehG8AAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 402,
+              "bytes": 13894,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 804,
+              "bytes": 46754,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-03-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1206,
+              "bytes": 95212,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-03-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1608,
+              "bytes": 150078,
+              "src": "4-erf-81-cradle-ridge-estate/axo-cut-03-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "5-erf-1661-saldanha-bay",
+      "name": "5. Erf 1661 Saldanha Bay",
+      "images": [
+        {
+          "slug": "intro-sketch-erf-1661-saldanha-bay",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "5. Erf 1661 Saldanha Bay/1_Intro sketch - Erf 1661 Saldanha Bay.png",
+          "width": 1212,
+          "height": 1297,
+          "aspectRatio": 0.9345,
+          "masterBytes": 3151746,
+          "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAAAwBQCdASoYABoAPt1kqU+opSOiKAqpEBuJQBf9sZ3ODSR2ygB3GUUer9+npn+GCdLAAAD+8jHLGB5+Zm91ra4nnXcPRSqKOZ2ggnM880siu1XiHwVayWRAOm6SToj4Udl22/QQT07NQTP3oUMf4WJfVFU51NjrMwRyZQJ7r3h0z2JFUw6gsvasXdmedu+hHf+XI9h9dGevUGAbf15dzFDPenUiO8z2uLHsla+go5WRl+blDGLNxW3UPEddseGWbMd3hCnvWc8cUzH3cAWIf0WRnp/Q3fjSTc0Xwa5b8AA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 685,
+              "bytes": 97978,
+              "src": "5-erf-1661-saldanha-bay/intro-sketch-erf-1661-saldanha-bay-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-01",
+          "role": "render",
+          "order": 2,
+          "master": "5. Erf 1661 Saldanha Bay/2_Render 01.png",
+          "width": 1212,
+          "height": 1298,
+          "aspectRatio": 0.9337,
+          "masterBytes": 2250468,
+          "lqip": "data:image/webp;base64,UklGRt4AAABXRUJQVlA4INIAAABwBQCdASoYABoAPt1iq08opSQiKAqpEBuJQBOmbE+EBJwhc4jq2dM89k+dSv9Lvu47y+WgAP6xS6sN33SQA0Bhv1tXnoyYLwj36NnVa3udFWdjeMTGsPaWMfCxQpaCN0RBO3y6Q9pSw0PJBP3op5rb8buXEMZb/U43E1FtFv+EqsGfEtFRvzBROuKmyKq0nqhax6FgsmIQrnZG3f96BQjVO2LKUDKGICke8eePvtQkaL8VzVXrNMkoTos+PurOcKgnuzXVvbcDX3URyZpYIZIX4AA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 685,
+              "bytes": 24998,
+              "src": "5-erf-1661-saldanha-bay/render-01-640.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-02",
+          "role": "render",
+          "order": 2,
+          "master": "5. Erf 1661 Saldanha Bay/2_Render 02.png",
+          "width": 1544,
+          "height": 1019,
+          "aspectRatio": 1.5152,
+          "masterBytes": 2391612,
+          "lqip": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBACdASoYABAAPt1apkyopSOiMAgBEBuJYgCdMoMggE4gIUb3yjlU+KNT8p2UAP6Rg5n7gEEj18GQf8ca0ZpV1eFBMrntCuLANqnxnWJwmhr5+e3RRpLI14EUj10tPzL9ZjueS+3+k3qrvjq72OkVPfVWtJLTjHKTl07CE/WzDfylZxXiQ88X5+LXV3g5fqFVRa42lDQq1M0owbTsQ/HxdjIjrlwAAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 422,
+              "bytes": 27868,
+              "src": "5-erf-1661-saldanha-bay/render-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 845,
+              "bytes": 105952,
+              "src": "5-erf-1661-saldanha-bay/render-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-03",
+          "role": "render",
+          "order": 2,
+          "master": "5. Erf 1661 Saldanha Bay/2_Render 03.png",
+          "width": 1556,
+          "height": 1011,
+          "aspectRatio": 1.5391,
+          "masterBytes": 2298299,
+          "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAAAwBACdASoYABAAPt1apkyopSOiMAgBEBuJZACdMoABlsaSmuce0LDzszAA2tchGFWDOXawztGCQUx/8QhsanpWVeXNKhqWQXOwHaXY9MT86J+y/v/jONt1c18H/cctLWchrBPoX5XfHivx7R9m3OL2SxY64BMQT/bTXNQvlOuYGHguJ3XsAyDkfCCdzsAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 416,
+              "bytes": 21246,
+              "src": "5-erf-1661-saldanha-bay/render-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 832,
+              "bytes": 86956,
+              "src": "5-erf-1661-saldanha-bay/render-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "5. Erf 1661 Saldanha Bay/4_Floorplan 01.png",
+          "width": 1394,
+          "height": 1128,
+          "aspectRatio": 1.2358,
+          "masterBytes": 3004264,
+          "lqip": "data:image/webp;base64,UklGRtYAAABXRUJQVlA4IMoAAABQBQCdASoYABMAPt1mq1EopSOiqAgBEBuJZQC7AYyKcLjPrB7En0yrifrzkhPmLhAQzgAA/vCl713ABETIu0tivMzVGCrG4FcbiTpoBMVc4P2zTr14lyTZwVRPrcDtgXmWDL+5iR4YNUwafjvWEFZ2qh0lmCQleUvH+I41QPSakbM3S0+qr0YG9Y/+kFLzIB7Qn3zl4RWOjhPwCGPMb+9XR7ouYdLKASTgmk34uuDeBFZflE7fms+nicYIG3qnSFA05+4RD0hoAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 518,
+              "bytes": 95816,
+              "src": "5-erf-1661-saldanha-bay/floorplan-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 1036,
+              "bytes": 361628,
+              "src": "5-erf-1661-saldanha-bay/floorplan-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "5. Erf 1661 Saldanha Bay/5_Elevation 01.png",
+          "width": 1885,
+          "height": 834,
+          "aspectRatio": 2.2602,
+          "masterBytes": 1978901,
+          "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADwAwCdASoYAAsAPt1cp00opSOiMAgBEBuJaQAD5LHZwNSh37xt2EqAAP7zgfQ59aqM+DxdJP9YilqHIxx+bDqI3iHIqqMDDybjnR9L/gE1bK+Czjq68LhfnoeWqFC+QnpMF2iIEkuxqZdKQAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 283,
+              "bytes": 24950,
+              "src": "5-erf-1661-saldanha-bay/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 566,
+              "bytes": 91762,
+              "src": "5-erf-1661-saldanha-bay/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "5. Erf 1661 Saldanha Bay/5_Elevation 02.png",
+          "width": 1880,
+          "height": 837,
+          "aspectRatio": 2.2461,
+          "masterBytes": 2079694,
+          "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAACwAwCdASoYAAsAPt1cpkyopSOiMAgBEBuJaQAAW+BSqZqXQbN2cAD+84E5OfR1GjxItL8SHzN+D05THAf4y5G97NGoHLgc5S0tF8ZqnqZUQm0V2ZlV0JTqOycamTZ9n7aIAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 285,
+              "bytes": 24920,
+              "src": "5-erf-1661-saldanha-bay/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 570,
+              "bytes": 98560,
+              "src": "5-erf-1661-saldanha-bay/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view",
+          "role": "axo-view",
+          "order": 6,
+          "master": "5. Erf 1661 Saldanha Bay/6_Axo view.png",
+          "width": 9547,
+          "height": 6903,
+          "aspectRatio": 1.383,
+          "masterBytes": 1477578,
+          "lqip": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADQBACdASoYABEAPt1kqE+opSOiKAqpEBuJZQAALjx6W1gtMH2aFhWC7zi+G2MQAAD+9NyCk8okflnWcGoYgBvu5mMX7uawMuHgKR5qxH8Oi0nR0YhgTH4NtAdrLcnR8CAmvrQFiYULhImRhuq2zVJ3yGVYD4HwK5HAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 463,
+              "bytes": 20854,
+              "src": "5-erf-1661-saldanha-bay/axo-view-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 926,
+              "bytes": 88148,
+              "src": "5-erf-1661-saldanha-bay/axo-view-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1388,
+              "bytes": 178306,
+              "src": "5-erf-1661-saldanha-bay/axo-view-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1851,
+              "bytes": 281648,
+              "src": "5-erf-1661-saldanha-bay/axo-view-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "5. Erf 1661 Saldanha Bay/7_Axo Cut 01.png",
+          "width": 9587,
+          "height": 7253,
+          "aspectRatio": 1.3218,
+          "masterBytes": 7154004,
+          "lqip": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAAAQBQCdASoYABIAPt1mq1EopSOiqAgBEBuJZQAD5MjKd0w4qmFCdPwQeXRBUdTpeFEAAP7038NXVZON5uoVJhPNGY2k3pF/MlZvn4CcaDQ0VnD8MdyflOmmAv6XdvQnFYD/acSkn2mPqWN9WugvmSSIkaLTGrt8HcPp+vevDKu5QWS9rOUv+ty6kz7SxhscHdGnAGfgAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 484,
+              "bytes": 28412,
+              "src": "5-erf-1661-saldanha-bay/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 968,
+              "bytes": 106990,
+              "src": "5-erf-1661-saldanha-bay/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1453,
+              "bytes": 212744,
+              "src": "5-erf-1661-saldanha-bay/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1937,
+              "bytes": 333858,
+              "src": "5-erf-1661-saldanha-bay/axo-cut-01-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "6-erf-1839-the-rest-estate-nelspruit",
+      "name": "6. Erf 1839 The Rest Estate Nelspruit",
+      "images": [
+        {
+          "slug": "intro-sketch-erf-1839-the-rest-estate-nelspruit",
+          "role": "intro-sketch",
+          "order": 1,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/1_Intro sketch - Erf 1839 The Rest Estate Nelspruit.png",
+          "width": 1536,
+          "height": 1024,
+          "aspectRatio": 1.5,
+          "masterBytes": 3313784,
+          "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4IKoAAABQBACdASoYABAAPt1apkyopSOiMAgBEBuJZQCw7YvgyPZdhWG1dfEZ+hAAAP7rjm6zL6MgW5WFkiegDqu1+7k8DA+7gGVPL7mGfQOCuO1RJeSh1zhUZP9de6VVGWavxxAfTl3q8zQCuyGnoZ5hB6f6dldmIr3B69m3+OPjbMY+T66dYXEotobL5WpH2QzDMCqeomW01z4YSbRqeaEYbAJHSGLFuUPcNcAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 57288,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/intro-sketch-erf-1839-the-rest-estate-nelspruit-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "bytes": 219204,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/intro-sketch-erf-1839-the-rest-estate-nelspruit-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-01",
+          "role": "render",
+          "order": 2,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/2_Render 01.png",
+          "width": 1698,
+          "height": 926,
+          "aspectRatio": 1.8337,
+          "masterBytes": 2724411,
+          "lqip": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAACQBACdASoYAA0APt1cpkyopSOiMAgBEBuJQBOmUGZOT/jeBb/SFjRRum7maSgA/cAAwPPbkFVmoluAHRvL/bZXtU16swAYvItP3QqzKBcmHbPoST3ayR+bcH4CasriPssFG0up5n1hc7O0hjIeqLUi6GvkPMnox+3wAw1wk8p9mfS2G8l3J1IBk8dUQjeFH+f4qX2RUlUuJKlKPxLSAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 349,
+              "bytes": 38092,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 698,
+              "bytes": 146072,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-02",
+          "role": "render",
+          "order": 2,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/2_Render 02.png",
+          "width": 1672,
+          "height": 941,
+          "aspectRatio": 1.7768,
+          "masterBytes": 2718365,
+          "lqip": "data:image/webp;base64,UklGRqoAAABXRUJQVlA4IJ4AAAAQBACdASoYAA4APt1apkyopSOiMAgBEBuJQBOgMZFQ8y54MtBDdUetfAD+iUoBh7wr75ZKAtL+rJ5LRvDaWTkOCIcJiMSR3kHHkz+gffuxBHMPUJz03HrwzkpZPoQ5LBcoG0+1s3nWS8+yw6Qjho61ceaB/YdbR3CPHkTXMW/oANDjQnbTBfrEAkclcM8o9cl6kjQwfGNkEqHLMigAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 360,
+              "bytes": 41886,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 720,
+              "bytes": 154092,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "render-03",
+          "role": "render",
+          "order": 2,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/2_Render 03.png",
+          "width": 1698,
+          "height": 926,
+          "aspectRatio": 1.8337,
+          "masterBytes": 2647929,
+          "lqip": "data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABQBACdASoYAA0APt1apkyopSOiMAgBEBuJYgCdIMggsxfcnSVmyenoeawAAPyPmDxJwM1gAK0Zc7jSiMe7QVB7iotGzHuUZpkZeZDmq0nRUJn21ynWp4zprtgejJpmrXBgz7RSbIJAZTh+v9zdmgGYqvm58/OjuCfmB8bzLQsciJ4il9m8vXxCJgk+7xWvy9PDxD08cb1TAb9Vc54piDJ1wAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 349,
+              "bytes": 34226,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-03-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 698,
+              "bytes": 134264,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/render-03-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-01",
+          "role": "plan",
+          "order": 4,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/4_Floorplan 01.png",
+          "width": 1447,
+          "height": 1087,
+          "aspectRatio": 1.3312,
+          "masterBytes": 2976478,
+          "lqip": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoYABIAPt1gp04opaMiKA1REBuJZQDImA9pbyVkioZvZuR5a9OAAP7yNFSd2L1ZCiKh5MVZNkrbSKXtPgAyxG1XfhVeENS4Re4beB6tKHDPhQt65sHXPXoTHIZuOpowvd/IhXpesVwbeRZg80u1pRtKNDenQFMdG1onfdsY2vAAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 481,
+              "bytes": 70678,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/floorplan-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 962,
+              "bytes": 303428,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/floorplan-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "floorplan-02",
+          "role": "plan",
+          "order": 4,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/4_Floorplan 02.png",
+          "width": 1451,
+          "height": 1084,
+          "aspectRatio": 1.3386,
+          "masterBytes": 3045964,
+          "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABwBACdASoYABIAPt1iqU+opSOiKAqpEBuJZQC2yA9nJKqzXrH+PkWolqq0AAD+8EDTqd5dlUKujjkWvY+Z7ovVShjq+FZ2dEr3WfDoRsFOVsequ4/FSPSGTg+Zv51QaPp204PCLGv9nxFxvllLQ5NDdbFvRtysqC55Ypcw9/8VCxlNbDnyuwDOekAQkxMDO+AAAA==",
+          "sources": [
+            {
+              "width": 640,
+              "height": 478,
+              "bytes": 75196,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/floorplan-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 956,
+              "bytes": 325512,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/floorplan-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-01",
+          "role": "elevation",
+          "order": 5,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/5_Elevation 01.png",
+          "width": 1832,
+          "height": 858,
+          "aspectRatio": 2.1352,
+          "masterBytes": 2631777,
+          "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQAwCdASoYAAsAPt1cpkyopSOiMAgBEBuJZQBVI4bPn8P+MB2leAAA/vIShVfcxVZGI18GcxDW/IsxrNXneaRSKA9WVsxzIAfA/5qg/H6tzLXyg2OkB/UnXlU88qKm2RThv0OADX9Y+dhNDheP0nRWhxs6eBEEXZsF4+0PlUUqY7Puyg4SAAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 300,
+              "bytes": 40540,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/elevation-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 599,
+              "bytes": 161834,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/elevation-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "elevation-02",
+          "role": "elevation",
+          "order": 5,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/5_Elevation 02.png",
+          "width": 1909,
+          "height": 824,
+          "aspectRatio": 2.3167,
+          "masterBytes": 2746245,
+          "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADwAwCdASoYAAoAPt1cpkyopSOiMAgBEBuJYwC7ACHpJIcoqeQB0qPAAP7zlZimrpONjQMye249oTsfUxge1SQg2jEVLVQjU2w03XouX/tKB1K9tdcTPE2O/EUQuanK/OopL48SDNeKS3PWsaboxqTUTled65iL3nsLQquahgRKPj3A7NX5rHmAAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 276,
+              "bytes": 41356,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/elevation-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 552,
+              "bytes": 167514,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/elevation-02-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-view-01",
+          "role": "axo-view",
+          "order": 6,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/6_Axo view 01.png",
+          "width": 13456,
+          "height": 6533,
+          "aspectRatio": 2.0597,
+          "masterBytes": 20664609,
+          "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoYAAwAPt1ep00opSOiMAgBEBuJZwAAXKpF6VhP2K+omPv10AD+9N5sRRqGHWIRtFKMKcnumt9PY8PPyuxxKStd/M7PYFRAk3fOB4kv+zilVWhsaT+oE23gTkhT0mDe+IFieNlsc1BEe5BMErz4fAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 311,
+              "bytes": 15760,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-view-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 621,
+              "bytes": 48948,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-view-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 932,
+              "bytes": 109694,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-view-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1243,
+              "bytes": 190676,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-view-01-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-01",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/7_Axo Cut 01.png",
+          "width": 13014,
+          "height": 7740,
+          "aspectRatio": 1.6814,
+          "masterBytes": 15489572,
+          "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoYAA4APt1cpkyopSOiMAgBEBuJZQC7ACB0LdMliM+r57CRAIAA/vTfwAKHxPt/4mDhFoBlICdV/mSxmtjomgMGvAIIm+ujrX5r9vmTFMsUHdYE4OVF0dhbbtth/Yf3audmJPLsVSxZr0yEpdyTKiyz1eu+MrjOAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 381,
+              "bytes": 16160,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 761,
+              "bytes": 47266,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-01-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1142,
+              "bytes": 99868,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-01-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1523,
+              "bytes": 168386,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-01-2560.webp"
+            }
+          ]
+        },
+        {
+          "slug": "axo-cut-02",
+          "role": "axo-cut",
+          "order": 7,
+          "master": "6. Erf 1839 The Rest Estate Nelspruit/7_Axo Cut 02.png",
+          "width": 13014,
+          "height": 8243,
+          "aspectRatio": 1.5788,
+          "masterBytes": 24355778,
+          "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoYAA8APt1apkyopSOiMAgBEBuJZwAAV/rMhh92tRQ2dEhCYAD+9N8T6ei2hfsPzUCeFWVZY4iWUt0bjPHuRoeFtqCNXQechta01hDT8k3ciM1D7Xa1OF0/GzYDkKtXnQwOvr4R2Xm2GoM9jMj59VUIOGKoYKkrAMKpj5hRwAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 405,
+              "bytes": 23218,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 811,
+              "bytes": 71940,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-02-1280.webp"
+            },
+            {
+              "width": 1920,
+              "height": 1216,
+              "bytes": 147144,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-02-1920.webp"
+            },
+            {
+              "width": 2560,
+              "height": 1621,
+              "bytes": 253630,
+              "src": "6-erf-1839-the-rest-estate-nelspruit/axo-cut-02-2560.webp"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "logos-and-business-card",
+      "name": "_Logos and Business Card",
+      "images": [
+        {
+          "slug": "business-card",
+          "role": "other",
+          "order": 99,
+          "master": "_Logos and Business Card/Business Card.jpeg",
+          "width": 1536,
+          "height": 1024,
+          "aspectRatio": 1.5,
+          "masterBytes": 64199,
+          "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACQAwCdASoYABAAPt1cpkyopSOiMAgBEBuJaQAAW+scnnxUAaQAAP7wwaUUHWrmiYd69KUOoN4E8nR4AAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 427,
+              "bytes": 6850,
+              "src": "logos-and-business-card/business-card-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 853,
+              "bytes": 18154,
+              "src": "logos-and-business-card/business-card-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "logo-header-01",
+          "role": "other",
+          "order": 99,
+          "master": "_Logos and Business Card/Logo - Header 01.png",
+          "width": 1492,
+          "height": 1054,
+          "aspectRatio": 1.4156,
+          "masterBytes": 735162,
+          "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAwCdASoYABEAPt1mqE2opiOiMBgIARAbiWkAAC517i5nquEaeg6AAP70y54KazlAFDQ9EMMx2VxRSjVlEUuRYH40AM+Ml+uHOAAAAAA=",
+          "sources": [
+            {
+              "width": 640,
+              "height": 452,
+              "bytes": 4098,
+              "src": "logos-and-business-card/logo-header-01-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 904,
+              "bytes": 9232,
+              "src": "logos-and-business-card/logo-header-01-1280.webp"
+            }
+          ]
+        },
+        {
+          "slug": "logo-header-02",
+          "role": "other",
+          "order": 99,
+          "master": "_Logos and Business Card/Logo - Header 02.png",
+          "width": 1491,
+          "height": 1055,
+          "aspectRatio": 1.4133,
+          "masterBytes": 344478,
+          "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQBACdASoYABEAPt1kqE2opaOiMBgIARAbiWkAAC6Nu0JanEDScGyqAAD+9o2/w+10AkLZOapmPTU7vlmmFXVavfyQzSXZGIWT8cff3pV4AAAA",
+          "sources": [
+            {
+              "width": 640,
+              "height": 453,
+              "bytes": 4160,
+              "src": "logos-and-business-card/logo-header-02-640.webp"
+            },
+            {
+              "width": 1280,
+              "height": 906,
+              "bytes": 9198,
+              "src": "logos-and-business-card/logo-header-02-1280.webp"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

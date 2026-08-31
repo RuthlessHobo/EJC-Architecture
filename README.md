@@ -1,6 +1,6 @@
 # EJC Architecture — static site (v3)
 
-Four pages, zero dependencies, self-hosted fonts. Deploy: drag folder into
+Five pages, zero dependencies, self-hosted fonts. Deploy: drag folder into
 Cloudflare Pages or `npx wrangler pages deploy .`
 
 ## Signature section
@@ -24,3 +24,16 @@ placeholder quotes (marked for client sign-off).
 - Review quotes + narrative copy: filler pending client approval.
 - Contact form submit: TODO in js/main.js — wire to GHL endpoint / Worker webhook.
 - bosveld-*.jpg are low-res (cropped phone screenshots) — request originals.
+
+## Careers page (added on `demo` branch)
+- `careers.html` — native page: role listing (Draftsperson / Technologist),
+  full role description, application form.
+- Form posts to FormSubmit (same endpoint pattern as contact) with the CV as a
+  PDF attachment (max 5 MB, enforced client-side); portfolio is a link field.
+  `_next` redirects back to careers.html?sent=1 which renders the confirmation.
+- Menu on all pages gained Careers <i>06</i> (+ preview image erf81n-r3) and the
+  footer gained a Careers link; contact.html's duplicate "Contact 04" index was
+  corrected to 05.
+- NOTE: first FormSubmit post to ejc.archeduan@gmail.com triggers a one-time
+  email activation from FormSubmit — send a test application and click the
+  confirmation link before go-live.

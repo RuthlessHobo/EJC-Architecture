@@ -1,5 +1,5 @@
 /* ============================================================
-   EJC ARCHITECTURE — core stylesheet
+   EJC ARCHITECTURE - core stylesheet
    Palette + type system derived from brand deck (2024)
    ============================================================ */
 
@@ -37,7 +37,7 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --ink: #101113;            /* charcoal black — steel cladding */
+  --ink: #101113;            /* charcoal black - steel cladding */
   --ink-soft: #1a1c1f;
   --charcoal: #31363b;        /* corrugated steel mid */
   --bone: #eeebe3;            /* warm plaster off-white */
@@ -1193,7 +1193,7 @@ body.is-ready .hero__media video { transform: scale(1); }
   .hero__media video { display: none; }
 }
 
-/* ---------- Stages v4: flat full-bleed — draw, detail, paint in passes ---------- */
+/* ---------- Stages v4: flat full-bleed - draw, detail, paint in passes ---------- */
 .stages {
   position: relative;
   height: 560vh;
@@ -1234,7 +1234,7 @@ body.is-ready .hero__media video { transform: scale(1); }
   background-size: 620px;
   opacity: calc(1 - var(--pp));
 }
-/* phase 1 — hundreds of strokes trace the architecture */
+/* phase 1 - hundreds of strokes trace the architecture */
 .stages__draw {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -1248,32 +1248,32 @@ body.is-ready .hero__media video { transform: scale(1); }
   stroke-linejoin: round;
   stroke-dasharray: 1;
 }
-/* construction guides — first in, linger over the finished render */
+/* construction guides - first in, linger over the finished render */
 .stages__draw .gd {
   stroke: #6a655c; stroke-width: 0.9; stroke-opacity: 0.34;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.00 + var(--i) * 0.11)) / 0.05), 1);
   opacity: calc(1 - var(--gf));
 }
-/* pencil linework — sweeps left to right */
+/* pencil linework - sweeps left to right */
 .stages__draw .pn {
   stroke: #4b463e;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.08 + var(--i) * 0.36)) / 0.08), 1);
   opacity: calc(1 - var(--pp));
 }
-/* hatching in the shaded recesses — arrives late in the drawing */
+/* hatching in the shaded recesses - arrives late in the drawing */
 .stages__draw .ht {
   stroke: #57524a; stroke-width: 1.0; stroke-opacity: 0.5;
   stroke-dashoffset: clamp(0, calc(1 - (var(--p) - (0.30 + var(--i) * 0.18)) / 0.06), 1);
   opacity: calc(1 - var(--pp));
 }
-/* phase 2 — pencil shading resolves */
+/* phase 2 - pencil shading resolves */
 .stages__sketch {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   -webkit-mask-image: linear-gradient(96deg, #000 calc(var(--skf) * 150% - 34%), transparent calc(var(--skf) * 150% + 8%));
   mask-image: linear-gradient(96deg, #000 calc(var(--skf) * 150% - 34%), transparent calc(var(--skf) * 150% + 8%));
 }
-/* phase 3 — colour arrives as one continuous wash: a soft leading tint,
+/* phase 3 - colour arrives as one continuous wash: a soft leading tint,
    then the full image, both on wide feathered gradient fronts */
 .stages__reveal {
   position: absolute; inset: 0;
@@ -1567,7 +1567,7 @@ img, video, canvas { max-width: 100%; }
 .stages__pin { contain: layout style paint; }
 .stages__art { will-change: transform; transform-style: flat; }
 @media (max-width: 820px) {
-  /* masks repaint on CPU every frame on phones — swap wipes for opacity fades */
+  /* masks repaint on CPU every frame on phones - swap wipes for opacity fades */
   .stages__sketch {
     -webkit-mask-image: none !important; mask-image: none !important;
     opacity: var(--skf);
@@ -1655,7 +1655,7 @@ img, video, canvas { max-width: 100%; }
 }
 
 
-/* ---------- v21: mobile stages unpinned — plays once on entry ---------- */
+/* ---------- v21: mobile stages unpinned - plays once on entry ---------- */
 @media (max-width: 820px) {
   .stages--m { height: auto !important; }
   .stages--m .stages__pin {
@@ -1671,13 +1671,13 @@ img, video, canvas { max-width: 100%; }
   .stages--m .stages__pin { position: sticky !important; top: 0; height: 100svh; }
   .stages--m .stages__drawvid { display: none !important; }
   .stages--m .stages__draw { display: none !important; }
-  /* the sketch is the opening state — always fully present */
+  /* the sketch is the opening state - always fully present */
   .stages--m .stages__sketch {
     opacity: 1 !important;
     transition: none !important;
     -webkit-mask-image: none !important; mask-image: none !important;
   }
-  /* the render crossfades in with scroll — pure composited opacity */
+  /* the render crossfades in with scroll - pure composited opacity */
   .stages--m .stages__reveal {
     opacity: clamp(0, calc((var(--p) - 0.38) / 0.34), 1) !important;
     transition: none !important;
@@ -1715,7 +1715,7 @@ img, video, canvas { max-width: 100%; }
 }
 
 
-/* ---------- v24: mobile perf — no live blur, no idle animations ---------- */
+/* ---------- v24: mobile perf - no live blur, no idle animations ---------- */
 @media (max-width: 820px) {
   .header.is-scrolled {
     backdrop-filter: none !important;
@@ -1724,3 +1724,105 @@ img, video, canvas { max-width: 100%; }
   }
 }
 .marquee__track.is-paused { animation-play-state: paused; }
+
+/* ---------- Careers page ---------- */
+/* menu gained a 6th item - stagger delays for rows 5 & 6 */
+.menu.is-open li:nth-child(5) .menu__link { transition-delay: 0.43s; }
+.menu.is-open li:nth-child(6) .menu__link { transition-delay: 0.5s; }
+
+.hiring-dot {
+  display: inline-block;
+  width: 0.5em; height: 0.5em;
+  margin-left: 0.55em;
+  border-radius: 50%;
+  background: var(--bronze);
+  vertical-align: middle;
+  animation: hiring-pulse 2.4s ease-in-out infinite;
+}
+@keyframes hiring-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) { .hiring-dot { animation: none; } }
+
+.careers-spec { margin-bottom: 3.4rem; }
+.careers-spec h3 {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 22%, transparent);
+}
+.careers-spec li {
+  position: relative;
+  padding: 0.9rem 0 0.9rem 1.9rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 10%, transparent);
+  font-weight: 300;
+}
+.careers-spec li::before {
+  content: '';
+  position: absolute;
+  left: 0.1rem; top: 1.7rem;
+  width: 0.9rem; height: 1px;
+  background: var(--bronze);
+}
+@media (min-width: 900px) {
+  .careers-spec li {
+    font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+    letter-spacing: 0.02em;
+    padding: 1.2rem 0 1.2rem 2.4rem;
+  }
+  .careers-spec li::before { top: 2.25rem; width: 1.1rem; }
+}
+
+/* careers typography conforms to the site's reading scale
+   (contact-info runs clamp(1.1rem, 2.2vw, 1.45rem)) */
+.careers-page .statement__body { font-size: clamp(1.05rem, 1.4vw, 1.25rem); max-width: 36rem; }
+.careers-h-side { font-size: clamp(2rem, 4vw, 3.4rem); }
+.careers-page .spec dd { font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+.careers-page .index-row__meta { font-size: clamp(0.8rem, 1.1vw, 0.95rem); }
+.careers-page .form-note { font-size: 0.95rem; }
+
+.careers-band img { width: 100%; height: clamp(20rem, 60vh, 34rem); object-fit: cover; }
+.careers-quote { font-size: clamp(1.6rem, 3.2vw, 2.9rem); margin-top: 1.8rem; }
+
+/* CV attachment field - matches .field underline language */
+.file-field { margin-bottom: 2.8rem; }
+.file-field__box {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.4rem 1.2rem;
+  border: 1px dashed color-mix(in srgb, currentColor 35%, transparent);
+  cursor: pointer;
+  transition: border-color 0.35s ease, background 0.35s ease;
+}
+.file-field__box:hover, .file-field__box:focus-within {
+  border-color: var(--bronze);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+}
+.file-field__box input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+}
+.file-field__icon {
+  flex: none;
+  width: 2.4rem; height: 2.4rem;
+  display: grid; place-items: center;
+  border: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+  color: var(--stone);
+}
+.file-field__icon svg { width: 1rem; height: 1rem; }
+.file-field__text strong { display: block; font-weight: 400; letter-spacing: 0.04em; }
+.file-field__text > span { font-size: 0.8rem; color: var(--smoke); }
+.theme-dark .file-field__text > span { color: var(--stone); }
+
+.careers-sent,
+.form-sent { padding: 2.5rem 0; }
+.form-sent p { margin-top: 1.2rem; color: var(--stone); max-width: 34rem; }
+.form-sent .form-sent__meta {
+  margin-top: 1.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--smoke);
+}
+.form-sent .form-sent__meta a { color: inherit; border-bottom: 1px solid currentColor; }

@@ -1,5 +1,5 @@
 /* ============================================================
-   EJC ARCHITECTURE — interaction layer
+   EJC ARCHITECTURE - interaction layer
    Vanilla JS. No dependencies. rAF-lerped parallax,
    IntersectionObserver reveals, magnetic elements.
    ============================================================ */
@@ -260,12 +260,12 @@
   /* ---------- Stages: sketch -> render scroll progress ---------- */
   if (stages && !prefersReduced) {
     const stageNames = [
-      'Stage 01 — Inception',
-      'Stage 02 — Concept',
-      'Stage 03 — Design development',
-      'Stage 04 — Council submission',
-      'Stage 05 — Construction',
-      'Stage 06 — Close out',
+      'Stage 01: Inception',
+      'Stage 02: Concept',
+      'Stage 03: Design development',
+      'Stage 04: Council submission',
+      'Stage 05: Construction',
+      'Stage 06: Close out',
     ];
     const label = stages.querySelector('.stages__stage');
     const stagesMobile = window.matchMedia('(max-width: 820px)').matches;
@@ -326,6 +326,16 @@
     input.addEventListener('input', sync);
     input.addEventListener('change', sync);
     sync();
+  });
+  // Keep FormSubmit's post-submit redirect on the origin the page is served
+  // from, so the demo deploy returns to the demo and live returns to live.
+  document.querySelectorAll('.contact-form input[name="_next"]').forEach((next) => {
+    try {
+      const u = new URL(next.value, window.location.href);
+      next.value = window.location.origin + u.pathname + u.search + u.hash;
+    } catch (_) {
+      /* leave the authored value alone if it will not parse */
+    }
   });
   const form = document.querySelector('.contact-form');
   if (form) {

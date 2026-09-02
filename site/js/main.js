@@ -325,16 +325,58 @@
     ];
     const label = stages.querySelector('.stages__stage');
     const stagesMobile = window.matchMedia('(max-width: 820px)').matches;
-    if (stagesMobile) stages.classList.add('stages--m');
+    if (stagesMobile) {
+      stages.classList.add('stages--m');
+      // The pencil-line SVG is display:none on phones, but its ~390 paths still
+      // sit in the tree and get their style re-resolved along with everything
+      // else. They can go entirely.
+      stages.querySelectorAll('.stages__draw, .stages__drawvid').forEach((el) => el.remove());
+    }
+    /* How progress reaches the page differs by device.
+
+       Desktop sets the inherited --p custom property on the section and lets
+       the stylesheet derive every mask, stroke and opacity from it. That is
+       the right tool there: the SVG linework and gradient masks need it.
+
+       On a phone that channel is the bottleneck. Changing an inherited custom
+       property makes the browser re-resolve style for every element beneath
+       it, every frame -- measured at ~4ms for this section on a throttled CPU,
+       against ~0.14ms for writing the six moving properties directly. So on
+       touch screens the same formulas the stylesheet uses are evaluated here
+       and written straight onto the six elements that actually change. */
+    const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
+    const reveal = stages.querySelector('.stages__reveal');
+    const hint = stages.querySelector('.stages__hint');
+    const bar = stages.querySelector('.stages__bar i');
+    // Caption timing lives in the stylesheet (--in / --out per caption); read it
+    // once so the CSS stays the single source of truth for the choreography.
+    const caps = [...stages.querySelectorAll('.stages__cap')].map((el) => {
+      const cs = getComputedStyle(el);
+      return {
+        el,
+        in: parseFloat(cs.getPropertyValue('--in')) || 0,
+        out: parseFloat(cs.getPropertyValue('--out')) || 1,
+      };
+    });
+    const paint = (p) => {
+      if (!stagesMobile) { stages.style.setProperty('--p', p.toFixed(4)); return; }
+      if (reveal) reveal.style.opacity = clamp01((p - 0.38) / 0.34);
+      if (hint) hint.style.opacity = 1 - clamp01(p / 0.12);
+      if (bar) bar.style.transform = `scaleX(${p.toFixed(4)})`;
+      for (const c of caps) {
+        c.el.style.opacity = clamp01((p - c.in) / 0.06) - clamp01((p - c.out) / 0.06);
+        c.el.style.transform = `translateY(${((1 - clamp01((p - c.in) / 0.10)) * 26).toFixed(2)}px)`;
+      }
+    };
     let cur = 0;
     let lastP = -1;
     let lastStage = -1;
     let done = false;
     let stagesPinned = false;
-        const resetStages = () => {
-      done = false; cur = 0;
+    const resetStages = () => {
+      done = false; cur = 0; lastP = -1;
       stages.style.height = '';
-      stages.style.setProperty('--p', '0');
+      paint(0);
     };
     document.addEventListener('ejc:pagechange', resetStages);
     /* Progress is measured against the pinned plate itself rather than
@@ -368,8 +410,12 @@
       if (pinned !== stagesPinned) {
         stagesPinned = pinned;
         document.body.classList.toggle('stages-pinned', pinned);
+        // Written on the transition only. classList.add rewrites the class
+        // attribute even when the token is already present, and doing that
+        // every frame dirtied style a second time per frame -- a whole extra
+        // style/layout/paint pass on top of the scrub's own.
+        if (pinned) header?.classList.add('is-hidden');
       }
-      if (pinned) header?.classList.add('is-hidden');
       const target = done ? 1 : Math.min(1, Math.max(0, raw));
       /* On a touch screen, scrolling is composited off the main thread, so an
          eased value is permanently chasing a target it never catches and the
@@ -380,7 +426,7 @@
       if (Math.abs(cur - target) < 0.001) cur = target;
       if (!done && cur > 0.985) { done = true; cur = 1; }
       const q = Math.round(cur * 400) / 400;
-      if (q !== lastP) { stages.style.setProperty('--p', q.toFixed(4)); lastP = q; }
+      if (q !== lastP) { paint(q); lastP = q; }
       if (label) {
         const idx = Math.min(5, Math.floor(cur * 6));
         const name = stageNames[idx];

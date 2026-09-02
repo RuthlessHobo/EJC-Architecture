@@ -1600,26 +1600,11 @@ img, video, canvas { max-width: 100%; }
     animation: ejc-dash 0.9s ease forwards;
     animation-delay: calc(0.35s + var(--i) * 1.7s);
   }
-  .stages--m .stages__sketch {
-    -webkit-mask-image: none !important; mask-image: none !important;
-    opacity: 0 !important; transition: opacity 1.2s ease;
-  }
-  .stages--m.m-sketch .stages__sketch { opacity: 1 !important; }
-  .stages--m .stages__reveal {
-    -webkit-mask-image: none !important; mask-image: none !important;
-    opacity: 0 !important; transition: opacity 1.4s ease;
-  }
-  .stages--m.m-render .stages__reveal { opacity: 1 !important; }
-  .stages--m.m-render .stages__draw { opacity: 0; transition: opacity 1s ease 0.4s; }
-  .stages--m .stages__final { opacity: 0 !important; }
-  .stages--m .stages__cap { opacity: 0 !important; transition: opacity 0.6s ease; }
-  .stages--m.m-draw .stages__cap:nth-of-type(1) { opacity: 1 !important; }
-  .stages--m.m-sketch .stages__cap:nth-of-type(1) { opacity: 0 !important; }
-  .stages--m.m-sketch .stages__cap:nth-of-type(2) { opacity: 1 !important; }
-  .stages--m.m-render .stages__cap:nth-of-type(2) { opacity: 0 !important; }
-  .stages--m.m-render .stages__cap:nth-of-type(3) { opacity: 1 !important; }
-  /* freeze the per-frame transform work too */
-  .stages--m .stages__art { transform: translate(-50%, -50%) !important; }
+  /* An earlier mobile treatment drove this section with .m-draw / .m-sketch /
+     .m-render mode classes. Nothing ever set them, so those rules were dead --
+     but their !important opacities still outranked the inline styles the script
+     now writes, and silently froze the render at opacity 0. Removed; the live
+     mobile rules for this section are further down, in the .stages--m block. */
 }
 @keyframes ejc-dash { to { stroke-dashoffset: 0; } }
 
@@ -1678,19 +1663,40 @@ img, video, canvas { max-width: 100%; }
     transition: none !important;
     -webkit-mask-image: none !important; mask-image: none !important;
   }
-  /* the render crossfades in with scroll - pure composited opacity */
+  /* On touch screens the scrub is driven by the script writing opacity and
+     transform straight onto the handful of elements that move, rather than
+     through the inherited --p custom property the desktop version uses.
+     Changing an inherited custom property makes the browser re-resolve style
+     for every element beneath it -- 429 here -- on every frame, which is what
+     made this section drop frames on phones. Writing the six properties
+     directly touches six elements and costs almost nothing.
+
+     So the values below are resting states only; the script animates them.
+     Nothing here may be !important, or it would silently override the inline
+     writes and freeze the scrub. Each animated element is given its own
+     compositor layer so an opacity or transform change never repaints the
+     full-screen image behind it. The 6% zoom and drift are dropped on mobile:
+     invisible at phone size, and a changing scale forces the art layer to be
+     re-rasterised every frame. */
+  .stages--m .stages__art { transform: translate(-50%, -50%); will-change: transform; }
   .stages--m .stages__reveal {
-    opacity: clamp(0, calc((var(--p) - 0.38) / 0.34), 1) !important;
+    opacity: 0;
+    will-change: opacity;
     transition: none !important;
     -webkit-mask-image: none !important; mask-image: none !important;
   }
   .stages--m .stages__reveal--wash { display: none !important; }
   .stages--m .stages__final { opacity: 0 !important; }
   .stages--m .stages__paper { opacity: 1; }
+  .stages--m .stages__hint { opacity: 1; will-change: opacity; }
+  /* the bar is scaled, not resized, so it never triggers layout */
+  .stages--m .stages__bar i { width: 100%; transform: scaleX(0); transform-origin: left center; will-change: transform; }
   /* captions ride the scrub: considered -> documented -> built */
   .stages--m .stages__cap {
     transition: none !important;
-    opacity: calc( clamp(0, calc((var(--p) - var(--in)) / 0.06), 1) - clamp(0, calc((var(--p) - var(--out)) / 0.06), 1) ) !important;
+    opacity: 0;
+    transform: translateY(26px);
+    will-change: opacity, transform;
   }
   .stages--m .stages__cap:nth-of-type(1) { --in: 0.00; --out: 0.34; }
   .stages--m .stages__cap:nth-of-type(2) { --in: 0.36; --out: 0.62; }

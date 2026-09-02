@@ -1,0 +1,36 @@
+# Cloudflare Pages response headers.
+#
+# Without this file Pages sends `cache-control: public, max-age=0,
+# must-revalidate` on everything, so a returning visitor re-checks all ~150
+# assets on every page view. Nothing below changes what a first-time visitor
+# downloads; it changes how much of it has to be asked for again.
+#
+# Durations are deliberately short of "immutable" for images and video, because
+# these filenames are stable and get replaced in place when a project is
+# updated. A week of freshness plus a month of stale-while-revalidate means a
+# repeat visit costs no requests, while a replaced image still reaches everyone
+# within a week (and sooner in practice, since stale-while-revalidate refreshes
+# in the background).
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/assets/video/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=2592000
+
+/css/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/js/*
+  Cache-Control: public, max-age=3600, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=604800
+
+# HTML stays revalidated so edits go live immediately.
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

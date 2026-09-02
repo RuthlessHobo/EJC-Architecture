@@ -332,42 +332,46 @@
       // else. They can go entirely.
       stages.querySelectorAll('.stages__draw, .stages__drawvid').forEach((el) => el.remove());
     }
-    /* How progress reaches the page differs by device.
+    /* Desktop drives the scrub by setting the inherited --p custom property and
+       letting the stylesheet derive every mask, stroke and opacity from it.
 
-       Desktop sets the inherited --p custom property on the section and lets
-       the stylesheet derive every mask, stroke and opacity from it. That is
-       the right tool there: the SVG linework and gradient masks need it.
-
-       On a phone that channel is the bottleneck. Changing an inherited custom
-       property makes the browser re-resolve style for every element beneath
-       it, every frame -- measured at ~4ms for this section on a throttled CPU,
-       against ~0.14ms for writing the six moving properties directly. So on
-       touch screens the same formulas the stylesheet uses are evaluated here
-       and written straight onto the six elements that actually change. */
-    const clamp01 = (v) => (v < 0 ? 0 : v > 1 ? 1 : v);
-    const reveal = stages.querySelector('.stages__reveal');
-    const hint = stages.querySelector('.stages__hint');
-    const bar = stages.querySelector('.stages__bar i');
-    // Caption timing lives in the stylesheet (--in / --out per caption); read it
-    // once so the CSS stays the single source of truth for the choreography.
-    const caps = [...stages.querySelectorAll('.stages__cap')].map((el) => {
-      const cs = getComputedStyle(el);
-      return {
-        el,
-        in: parseFloat(cs.getPropertyValue('--in')) || 0,
-        out: parseFloat(cs.getPropertyValue('--out')) || 1,
-      };
-    });
-    const paint = (p) => {
-      if (!stagesMobile) { stages.style.setProperty('--p', p.toFixed(4)); return; }
-      if (reveal) reveal.style.opacity = clamp01((p - 0.38) / 0.34);
-      if (hint) hint.style.opacity = 1 - clamp01(p / 0.12);
-      if (bar) bar.style.transform = `scaleX(${p.toFixed(4)})`;
-      for (const c of caps) {
-        c.el.style.opacity = clamp01((p - c.in) / 0.06) - clamp01((p - c.out) / 0.06);
-        c.el.style.transform = `translateY(${((1 - clamp01((p - c.in) / 0.10)) * 26).toFixed(2)}px)`;
-      }
-    };
+       Touch screens do not use this path at all. There the scrub is a CSS
+       scroll-driven animation (see the .stages--m rules), advanced by the
+       browser on the compositor thread with no script involved: nothing here
+       runs per frame on a phone. What remains for script on touch is done
+       once, or only when something actually changes. */
+    const paint = (p) => stages.style.setProperty('--p', p.toFixed(4));
+    if (stagesMobile) {
+      const pinEl = stages.querySelector('.stages__pin');
+      const pinImgs = [...stages.querySelectorAll('.stages__pin img')];
+      // Decode the sketch and render well before the section arrives, so the
+      // first frame of the scrub is not spent decoding a 1500px image on the
+      // main thread while the finger is moving.
+      new IntersectionObserver((es, io) => {
+        if (!es[0].isIntersecting) return;
+        pinImgs.forEach((im) => { if (im.decode) im.decode().catch(() => {}); });
+        io.disconnect();
+      }, { rootMargin: '150% 0px' }).observe(stages);
+      // Near-viewport flag, and the trigger for the no-scroll-driven-animation
+      // fallback (harmless where the animation is supported).
+      let near = false;
+      new IntersectionObserver((es) => {
+        near = es[0].isIntersecting;
+        if (near) stages.classList.add('is-seen');
+      }, { rootMargin: '10% 0px' }).observe(stages);
+      // The stage name is the one thing left for script: a single layout read
+      // per scroll event while the section is near, and a text write only when
+      // the name actually changes. Layout is otherwise clean on touch, so the
+      // read is cheap.
+      window.addEventListener('scroll', () => {
+        if (!near || !label) return;
+        const r = stages.getBoundingClientRect();
+        const travel = r.height - (pinEl ? pinEl.offsetHeight : window.innerHeight);
+        const p = travel > 0 ? Math.min(1, Math.max(0, -r.top / travel)) : 1;
+        const name = stageNames[Math.min(5, Math.floor(p * 6))];
+        if (label.textContent !== name) label.textContent = name;
+      }, { passive: true });
+    }
     let cur = 0;
     let lastP = -1;
     let lastStage = -1;
@@ -445,10 +449,14 @@
       stagesRunning = true;
       requestAnimationFrame(tick);
     };
-    new IntersectionObserver((entries) => {
-      onScreen = entries[0].isIntersecting;
-      kickStages();
-    }, { rootMargin: '50% 0px' }).observe(stages);
+    // Desktop only. On touch the scrub is a scroll-driven CSS animation and this
+    // per-frame loop must never start: it would put script back on the frame.
+    if (!stagesMobile) {
+      new IntersectionObserver((entries) => {
+        onScreen = entries[0].isIntersecting;
+        kickStages();
+      }, { rootMargin: '50% 0px' }).observe(stages);
+    }
   }
 
   /* ---------- Contact form ---------- */

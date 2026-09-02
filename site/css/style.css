@@ -1157,10 +1157,18 @@ body.is-ready .hero__media img { transform: scale(1); }
   transform: scaleY(0);
   transform-origin: bottom center;
   pointer-events: none;
+  /* A fixed, transformed element is a compositor layer even at scaleY(0) --
+     a full-screen backing store sitting in GPU memory for a veil that is
+     invisible until a link is tapped. visibility:hidden removes it from
+     rendering entirely between transitions; the delayed transition on exit
+     lets the scaleY animation finish before it disappears. */
+  visibility: hidden;
+  transition: transform 0.34s var(--ease-inout), visibility 0s 0.34s;
 }
 .veil.is-in {
   transform: scaleY(1);
-  transition: transform 0.34s var(--ease-inout);
+  visibility: visible;
+  transition: transform 0.34s var(--ease-inout), visibility 0s;
 }
 
 /* ---------- Parallax helper ---------- */
@@ -1564,143 +1572,126 @@ img, video, canvas { max-width: 100%; }
 .header { will-change: transform; }
 
 
-/* ---------- Mobile: compositor-friendly stages (kill scroll jitter) ---------- */
-.stages__pin { contain: layout style paint; }
-.stages__art { will-change: transform; transform-style: flat; }
+/* ---------- Mobile stages: the single source of truth ----------
+   This replaces six earlier generations of the phone treatment for this
+   section that had accumulated in this file, each overriding the last with
+   !important. Nothing outside this block styles the section on touch screens.
+
+   The scrub is a CSS scroll-driven animation. A phone scrolls on the
+   compositor thread -- the page has already moved before any script runs --
+   so every script-driven version of this effect was a frame behind the finger
+   and inherited every main-thread hitch. Here progress is bound to how far the
+   section has travelled through the viewport and the browser advances it in
+   the same place it handles the scroll. No script runs per frame, no style is
+   re-resolved, only opacity and transform change, so nothing repaints.
+   "contain 0% -> contain 100%" is exactly the span the plate is pinned: the
+   same travel the desktop script measures. The choreography is the desktop
+   one, transcribed into keyframes.
+
+   Selectors are .stages--m .x (0,2,0), which outrank the desktop base rules
+   (0,1,0) without !important, so nothing here needs to be important and
+   nothing here can be silently outranked by an inline style or animation. */
 @media (max-width: 820px) {
-  /* masks repaint on CPU every frame on phones - swap wipes for opacity fades */
-  .stages__sketch {
-    -webkit-mask-image: none !important; mask-image: none !important;
-    opacity: var(--skf);
-  }
-  .stages__reveal {
-    -webkit-mask-image: none !important; mask-image: none !important;
-    opacity: var(--pp);
-  }
-  .stages__reveal--wash { display: none; }
-  /* halve the stroke workload */
-  .stages__draw .ht { display: none; }
-  .stages__draw .pn:nth-of-type(even) { display: none; }
-  .stages__draw { filter: none; }
-}
+  .stages--m { height: 200vh; view-timeline: --stages block; }
+  .stages--m .stages__pin { position: sticky; top: 0; height: 100svh; }
 
+  /* not part of the phone treatment: pencil linework, its baked video, the
+     leading wash, and the final render (the reveal carries the render) */
+  .stages--m .stages__draw,
+  .stages--m .stages__drawvid,
+  .stages--m .stages__reveal--wash,
+  .stages--m .stages__final { display: none; }
 
-/* ---------- Mobile stages: play-on-reach (zero per-frame style work) ---------- */
-@media (max-width: 820px) {
-  .stages--m { height: 260vh; }
-  .stages--m .stages__draw .gd,
-  .stages--m .stages__draw .pn {
-    stroke-dashoffset: 1; opacity: 1;
-  }
-  .stages--m.m-draw .stages__draw .gd {
-    animation: ejc-dash 0.8s ease forwards;
-    animation-delay: calc(var(--i) * 0.5s);
-  }
-  .stages--m.m-draw .stages__draw .pn {
-    animation: ejc-dash 0.9s ease forwards;
-    animation-delay: calc(0.35s + var(--i) * 1.7s);
-  }
-  /* An earlier mobile treatment drove this section with .m-draw / .m-sketch /
-     .m-render mode classes. Nothing ever set them, so those rules were dead --
-     but their !important opacities still outranked the inline styles the script
-     now writes, and silently froze the render at opacity 0. Removed; the live
-     mobile rules for this section are further down, in the .stages--m block. */
-}
-@keyframes ejc-dash { to { stroke-dashoffset: 0; } }
-
-
-/* ---------- Mobile stages v2: baked draw video, composited-only ---------- */
-.stages__drawvid { display: none; }
-@media (max-width: 820px) {
-  .stages--m .stages__draw { display: none !important; }
-  .stages--m .stages__drawvid {
-    display: block;
-    position: absolute; inset: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-  }
-  .stages--m .stages__sketch { transition-delay: 0.15s; }
-}
-
-
-/* ---------- Mobile stages v3: viewport-sized layers (iOS GPU memory budget) ---------- */
-@media (max-width: 820px) {
+  /* the art fills the viewport exactly: one viewport-sized layer, not the
+     1500px canvas the desktop zooms and drifts */
   .stages--m .stages__art {
-    width: 100vw !important;
-    height: 100svh !important;
-    aspect-ratio: auto !important;
-    top: 0 !important; left: 0 !important;
-    transform: none !important;
-    will-change: auto !important;
+    width: 100vw; height: 100svh; aspect-ratio: auto;
+    top: 0; left: 0; transform: none; will-change: auto;
   }
   .stages--m .stages__art > img,
-  .stages--m .stages__reveal img,
-  .stages--m .stages__drawvid {
-    object-fit: cover;
-  }
-}
+  .stages--m .stages__reveal img { object-fit: cover; }
 
+  /* resting states; the animation below drives them */
+  .stages--m .stages__paper  { opacity: 1; }
+  .stages--m .stages__sketch { opacity: 1; -webkit-mask-image: none; mask-image: none; transition: none; }
+  /* :not() keeps this from matching the wash element, which carries both
+     classes and must stay hidden; at equal specificity the later display:block
+     would otherwise win and put a second full-screen image back on screen. */
+  .stages--m .stages__reveal:not(.stages__reveal--wash) { display: block; opacity: 0; -webkit-mask-image: none; mask-image: none; transition: none; }
+  .stages--m .stages__hint   { opacity: 1; }
+  .stages--m .stages__bar i  { width: 100%; transform: scaleX(0); transform-origin: left center; }  /* scaled, never resized: no layout */
+  .stages--m .stages__cap    { opacity: 0; transform: translateY(26px); transition: none; }
 
-/* ---------- v21: mobile stages unpinned - plays once on entry ---------- */
-@media (max-width: 820px) {
-  .stages--m { height: auto !important; }
-  .stages--m .stages__pin {
-    position: relative !important;
-    height: 100svh;
-  }
-}
+  @supports (animation-timeline: view()) {
+    .stages--m .stages__reveal:not(.stages__reveal--wash),
+    .stages--m .stages__hint,
+    .stages--m .stages__bar i,
+    .stages--m .stages__cap {
+      animation-timeline: --stages;
+      animation-range: contain 0% contain 100%;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+      animation-duration: 1ms;   /* some engines need a duration to activate the timeline; the timeline owns the pace */
+    }
+    .stages--m .stages__reveal:not(.stages__reveal--wash) { animation-name: ejc-m-reveal; }
+    .stages--m .stages__hint   { animation-name: ejc-m-hint; }
+    .stages--m .stages__bar i  { animation-name: ejc-m-bar; }
+    .stages--m .stages__cap:nth-of-type(1) { animation-name: ejc-m-cap1; }
+    .stages--m .stages__cap:nth-of-type(2) { animation-name: ejc-m-cap2; }
+    .stages--m .stages__cap:nth-of-type(3) { animation-name: ejc-m-cap3; }
 
+    /* render fades in from 38% to 72% of the pinned travel: (p - 0.38) / 0.34 */
+    @keyframes ejc-m-reveal { 0%, 38% { opacity: 0; } 72%, 100% { opacity: 1; } }
+    /* "scroll" hint gone by 12%: 1 - p / 0.12 */
+    @keyframes ejc-m-hint   { 0% { opacity: 1; } 12%, 100% { opacity: 0; } }
+    @keyframes ejc-m-bar    { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    /* captions: in over 6%, rise over 10%, hold, out over 6% -- the desktop
+       --in/--out thresholds (0/0.34, 0.36/0.62, 0.66/never) */
+    @keyframes ejc-m-cap1 {
+      0%        { opacity: 0; transform: translateY(26px); }
+      6%        { opacity: 1; }
+      10%       { transform: translateY(0); }
+      34%       { opacity: 1; }
+      40%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes ejc-m-cap2 {
+      0%, 36%   { opacity: 0; transform: translateY(26px); }
+      42%       { opacity: 1; }
+      46%       { transform: translateY(0); }
+      62%       { opacity: 1; }
+      68%, 100% { opacity: 0; transform: translateY(0); }
+    }
+    @keyframes ejc-m-cap3 {
+      0%, 66%   { opacity: 0; transform: translateY(26px); }
+      72%       { opacity: 1; }
+      76%, 100% { opacity: 1; transform: translateY(0); }
+    }
+  }
 
-/* ---------- v22: mobile stages = scroll-tied sketch->render crossfade ---------- */
-@media (max-width: 820px) {
-  .stages--m { height: 200vh !important; }
-  .stages--m .stages__pin { position: sticky !important; top: 0; height: 100svh; }
-  .stages--m .stages__drawvid { display: none !important; }
-  .stages--m .stages__draw { display: none !important; }
-  /* the sketch is the opening state - always fully present */
-  .stages--m .stages__sketch {
-    opacity: 1 !important;
-    transition: none !important;
-    -webkit-mask-image: none !important; mask-image: none !important;
+  /* No scroll-driven animations: one composited crossfade when the section
+     comes into view, triggered by the script adding .is-seen. */
+  @supports not (animation-timeline: view()) {
+    .stages--m .stages__reveal:not(.stages__reveal--wash),
+    .stages--m .stages__cap { transition: opacity 1.4s ease, transform 1.4s ease; }
+    .stages--m .stages__bar i { transition: transform 2.4s linear; }
+    .stages--m .stages__hint  { transition: opacity 0.6s ease; }
+    .stages--m.is-seen .stages__reveal { opacity: 1; }
+    .stages--m.is-seen .stages__bar i  { transform: scaleX(1); }
+    .stages--m.is-seen .stages__hint   { opacity: 0; }
+    .stages--m.is-seen .stages__cap:nth-of-type(3) { opacity: 1; transform: none; }
   }
-  /* On touch screens the scrub is driven by the script writing opacity and
-     transform straight onto the handful of elements that move, rather than
-     through the inherited --p custom property the desktop version uses.
-     Changing an inherited custom property makes the browser re-resolve style
-     for every element beneath it -- 429 here -- on every frame, which is what
-     made this section drop frames on phones. Writing the six properties
-     directly touches six elements and costs almost nothing.
 
-     So the values below are resting states only; the script animates them.
-     Nothing here may be !important, or it would silently override the inline
-     writes and freeze the scrub. Each animated element is given its own
-     compositor layer so an opacity or transform change never repaints the
-     full-screen image behind it. The 6% zoom and drift are dropped on mobile:
-     invisible at phone size, and a changing scale forces the art layer to be
-     re-rasterised every frame. */
-  .stages--m .stages__art { transform: translate(-50%, -50%); will-change: transform; }
-  .stages--m .stages__reveal {
-    opacity: 0;
-    will-change: opacity;
-    transition: none !important;
-    -webkit-mask-image: none !important; mask-image: none !important;
+  /* Reduced motion: show the finished state, no scrub, no rise. */
+  @media (prefers-reduced-motion: reduce) {
+    .stages--m .stages__reveal:not(.stages__reveal--wash),
+    .stages--m .stages__hint,
+    .stages--m .stages__bar i,
+    .stages--m .stages__cap { animation: none; transition: none; }
+    .stages--m .stages__reveal:not(.stages__reveal--wash) { opacity: 1; }
+    .stages--m .stages__hint   { opacity: 0; }
+    .stages--m .stages__bar i  { transform: scaleX(1); }
+    .stages--m .stages__cap:nth-of-type(3) { opacity: 1; transform: none; }
   }
-  .stages--m .stages__reveal--wash { display: none !important; }
-  .stages--m .stages__final { opacity: 0 !important; }
-  .stages--m .stages__paper { opacity: 1; }
-  .stages--m .stages__hint { opacity: 1; will-change: opacity; }
-  /* the bar is scaled, not resized, so it never triggers layout */
-  .stages--m .stages__bar i { width: 100%; transform: scaleX(0); transform-origin: left center; will-change: transform; }
-  /* captions ride the scrub: considered -> documented -> built */
-  .stages--m .stages__cap {
-    transition: none !important;
-    opacity: 0;
-    transform: translateY(26px);
-    will-change: opacity, transform;
-  }
-  .stages--m .stages__cap:nth-of-type(1) { --in: 0.00; --out: 0.34; }
-  .stages--m .stages__cap:nth-of-type(2) { --in: 0.36; --out: 0.62; }
-  .stages--m .stages__cap:nth-of-type(3) { --in: 0.66; --out: 1.2; }
 }
 
 
@@ -1710,6 +1701,37 @@ img, video, canvas { max-width: 100%; }
   .hero__media video { display: none; }
   .hero__media { background: url('../assets/img/hero-poster.jpg') center/cover no-repeat;
     background-image: image-set(url('../assets/img/hero-poster.webp') type('image/webp'), url('../assets/img/hero-poster.jpg') type('image/jpeg')); }
+
+  /* ---------- GPU layer diet ----------
+     A phone's compositor has a small memory budget for layers. Past it, tiles
+     get evicted and re-rasterised mid-scroll, which is felt as stutter on every
+     part of the page, not just where the layers are. A census of this page on a
+     390px viewport found ~340 MB of layer backing at 3x. The waste below costs
+     nothing visually on a phone. */
+
+  /* Parallax is disabled on touch screens, but the will-change that prepares
+     for it still promotes the full-screen hero (and its image) to their own
+     layers: ~28 MB for an effect that never runs here. */
+  .hero__media, [data-parallax] { will-change: auto; }
+
+  /* The hero's gradient overlay was promoted only because it sat above that
+     will-change layer. Fold the gradient into the background image itself and
+     drop the pseudo-element: one layer fewer, identical pixels. */
+  .hero::before { display: none; }
+  .hero__media {
+    background-image:
+      linear-gradient(to top, rgba(13,12,10,0.82) 0%, rgba(13,12,10,0.25) 45%, rgba(13,12,10,0.35) 100%),
+      url('../assets/img/hero-poster.jpg');
+    background-image:
+      linear-gradient(to top, rgba(13,12,10,0.82) 0%, rgba(13,12,10,0.25) 45%, rgba(13,12,10,0.35) 100%),
+      image-set(url('../assets/img/hero-poster.webp') type('image/webp'), url('../assets/img/hero-poster.jpg') type('image/jpeg'));
+    background-position: center; background-size: cover; background-repeat: no-repeat;
+  }
+
+  /* The page wrapper is a ~113 MB tiled layer whose paint includes an 80px
+     blurred shadow, so every tile is expensive to rasterise. The shadow only
+     shows where the footer is revealed; on a phone it is not worth the cost. */
+  .site-body { box-shadow: none; }
 }
 
 

@@ -80,7 +80,8 @@
     if (!header) return;
     const y = window.scrollY;
     header.classList.toggle('is-scrolled', y > 60);
-    if (!header.classList.contains('is-open')) {
+    if (!header.classList.contains('is-open') &&
+        !document.body.classList.contains('stages-pinned')) {
       header.classList.toggle('is-hidden', y - lastY > 4 && y > 300);
     }
     lastY = y;
@@ -329,30 +330,56 @@
     let lastP = -1;
     let lastStage = -1;
     let done = false;
+    let stagesPinned = false;
         const resetStages = () => {
       done = false; cur = 0;
       stages.style.height = '';
       stages.style.setProperty('--p', '0');
     };
     document.addEventListener('ejc:pagechange', resetStages);
-    let vw0 = window.innerWidth, vhC = window.innerHeight;
+    /* Progress is measured against the pinned plate itself rather than
+       window.innerHeight. The three heights in play here do not agree: the
+       section is sized in vh (large viewport), .stages__pin in svh (small
+       viewport), and window.innerHeight sits between the two, changing as a
+       phone's URL bar hides and shows. Mixing them made the scroll maths jump
+       every time that bar moved, which is what read as vibration on mobile.
+       The pin is the element actually on screen, so measuring it keeps the
+       maths and the layout in agreement whatever the browser chrome does. */
+    const pin = stages.querySelector('.stages__pin');
+    let vw0 = window.innerWidth;
+    let pinH = pin ? pin.getBoundingClientRect().height : window.innerHeight;
     window.addEventListener('resize', () => {
-      if (window.innerWidth !== vw0) { vw0 = window.innerWidth; vhC = window.innerHeight; }
+      // Height-only resizes are the URL bar; re-measuring on those reintroduces
+      // the jump. Only a width change is a real layout change.
+      if (window.innerWidth !== vw0) {
+        vw0 = window.innerWidth;
+        pinH = pin ? pin.getBoundingClientRect().height : window.innerHeight;
+      }
     });
     const tick = () => {
       const rect = stages.getBoundingClientRect();
-      const vh = vhC;
-      const total = rect.height - vh;
+      const total = rect.height - pinH;
       const raw = total > 0 ? -rect.top / total : 1;
-      /* keep the nav out of the way while the plate is pinned */
-      if (rect.top <= 2 && rect.bottom >= vh - 2 && !document.body.classList.contains('is-locked')) {
-        header?.classList.add('is-hidden');
+      /* Keep the nav out of the way while the plate is pinned. The scroll
+         handler also writes this class, so flag the pinned state and let it
+         stand down -- otherwise the two fight and the header flickers. */
+      const pinned = rect.top <= 2 && rect.bottom >= pinH - 2 &&
+                     !document.body.classList.contains('is-locked');
+      if (pinned !== stagesPinned) {
+        stagesPinned = pinned;
+        document.body.classList.toggle('stages-pinned', pinned);
       }
+      if (pinned) header?.classList.add('is-hidden');
       const target = done ? 1 : Math.min(1, Math.max(0, raw));
-      cur = done ? 1 : lerp(cur, target, stagesMobile ? 0.3 : 0.14);
+      /* On a touch screen, scrolling is composited off the main thread, so an
+         eased value is permanently chasing a target it never catches and the
+         catch-up reads as judder. Locking progress straight to scroll position
+         makes it a pure function of where the finger is, which cannot wobble.
+         Desktop keeps the easing, where it is smooth and wanted. */
+      cur = done ? 1 : (stagesMobile ? target : lerp(cur, target, 0.14));
       if (Math.abs(cur - target) < 0.001) cur = target;
       if (!done && cur > 0.985) { done = true; cur = 1; }
-      const q = stagesMobile ? Math.round(cur * 160) / 160 : Math.round(cur * 400) / 400;
+      const q = Math.round(cur * 400) / 400;
       if (q !== lastP) { stages.style.setProperty('--p', q.toFixed(4)); lastP = q; }
       if (label) {
         const idx = Math.min(5, Math.floor(cur * 6));

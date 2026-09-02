@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ejcarchitecture-v1",
+  "compatibility_date": "2026-08-24",
+  // Static-asset-only Worker: no entry script, Cloudflare serves site/ directly.
+  // site/_headers supplies the cache-control rules.
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

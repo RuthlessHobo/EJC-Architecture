@@ -64,3 +64,17 @@ WebP and fill in its dimensions.
 Note that `assets/video/hero.mp4.optimised` is a marker file that stops the video
 being re-encoded — and losing quality — on every run. Delete it if you replace
 the video.
+
+## How this is deployed
+
+The site is a static-asset Cloudflare **Worker** (`ejcarchitecture-v1`), not a
+Pages project — `ejcarch.co.za` is bound to it as a custom domain. `wrangler.jsonc`
+at the repository root holds the config.
+
+```sh
+npx wrangler versions upload   # upload a version, get a preview URL, production untouched
+npx wrangler versions deploy   # promote a verified version to production
+```
+
+Prefer that two-step over `wrangler deploy`: it gives you a real URL to check
+before any visitor sees the change.

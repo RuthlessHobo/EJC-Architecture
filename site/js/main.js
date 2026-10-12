@@ -311,6 +311,126 @@
     });
   });
 
+  /* ---------- Mobile stages: the sketch plays itself ----------
+     See the "Mobile stages" block in style.css for why phones do not pin or
+     scrub this section. Here: build the layers once, preload as the section
+     approaches, then play the sequence once when most of it is on screen.
+     Everything that moves is a video or a transform/opacity transition. */
+  const initMobileStages = (stages, label, stageNames) => {
+    const art = stages.querySelector('.stages__art');
+    if (!art) return;
+    // The desktop SVG (392 nodes) is never shown on phones; drop it so it is
+    // not styled or laid out at all.
+    stages.querySelectorAll('.stages__draw, .stages__drawvid').forEach((el) => el.remove());
+
+    const sketch = stages.querySelector('.stages__sketch');
+    if (sketch && sketch.parentElement && sketch.parentElement.tagName === 'PICTURE') {
+      sketch.parentElement.classList.add('stages__wipe');
+    }
+    // Created here rather than in the markup so desktop never requests it.
+    const vid = document.createElement('video');
+    vid.className = 'stages__sketchvid';
+    vid.muted = true; vid.defaultMuted = true; vid.playsInline = true;
+    vid.setAttribute('muted', ''); vid.setAttribute('playsinline', '');
+    vid.setAttribute('aria-hidden', 'true');
+    vid.preload = 'none';
+    art.prepend(vid);
+    // iOS Safari only plays a video whose server answers byte-range requests
+    // with 206, and Cloudflare's static assets answer them with a plain 200 --
+    // so a src URL would never play on an iPhone. Fetching the file whole and
+    // playing it from a blob sidesteps that: Safari serves ranges from memory.
+    const loadVideo = () => fetch('assets/video/stages-draw-m.mp4')
+      .then((r) => (r.ok ? r.blob() : Promise.reject(new Error('HTTP ' + r.status))))
+      .then((b) => { vid.preload = 'auto'; vid.src = URL.createObjectURL(b); vid.load(); })
+      .catch(() => {});   // no video: the sequence skips straight to the wipes
+
+    // Timeline (ms). Each caption holds long enough to read: the first for
+    // the whole drawing, the second through the shading, the third stays.
+    const STEP = { shade: 4700, built: 8500, end: 10400, settled: 10600 };
+    let gen = 0;          // bumps on every reset, so stale callbacks do nothing
+    let started = false;
+    let finished = false;
+    let timers = [];
+    const later = (ms, fn) => {
+      const g = gen;
+      timers.push(setTimeout(() => { if (g === gen) fn(); }, ms));
+    };
+    const step = (n) => stages.setAttribute('data-step', String(n));
+
+    const afterDrawing = (t0) => {
+      // Shading and render follow the drawing; if the drawing was skipped
+      // they follow at once.
+      later(t0, () => { stages.classList.add('is-shaded'); step(2); });
+      later(t0 + (STEP.built - STEP.shade), () => { stages.classList.add('is-built'); step(3); });
+      later(t0 + (STEP.settled - STEP.shade), () => { finished = true; });
+    };
+    const play = () => {
+      if (started || finished) return;
+      started = true;
+      const g = gen;
+      stages.classList.add('is-playing');
+      step(1);
+      // stage label walks Inception -> Close out across the whole sequence
+      stageNames.forEach((name, n) => later((STEP.end / stageNames.length) * n, () => {
+        if (label) label.textContent = name;
+      }));
+      let drew = false;
+      const go = () => {
+        if (drew || g !== gen) return;
+        drew = true;
+        stages.classList.add('is-drawing');
+        const p = vid.play();
+        const skip = () => { if (g !== gen) return; stages.classList.remove('is-drawing'); afterDrawing(0); };
+        if (p && p.catch) {
+          // Low Power Mode on iOS refuses autoplay: skip straight to the wipes.
+          p.then(() => { if (g === gen) afterDrawing(STEP.shade); }).catch(skip);
+        } else {
+          afterDrawing(STEP.shade);
+        }
+      };
+      // Start the drawing as soon as the video can play through; if it has
+      // not buffered within 2.5s, do not hold the reader on a blank page.
+      if (vid.readyState >= 3) go();
+      else {
+        vid.addEventListener('canplaythrough', go, { once: true });
+        later(2500, () => { if (!drew) { drew = true; afterDrawing(0); } });
+      }
+    };
+    // Scrolled away before it finished: put everything back to the blank
+    // sheet, off screen and without animating, so it plays from the start
+    // when the reader returns rather than being missed.
+    const reset = () => {
+      gen++;
+      timers.forEach(clearTimeout);
+      timers = [];
+      started = false;
+      stages.classList.add('is-resetting');
+      stages.classList.remove('is-playing', 'is-drawing', 'is-shaded', 'is-built');
+      stages.removeAttribute('data-step');
+      vid.pause();
+      try { vid.currentTime = 0; } catch (e) { /* not loaded yet */ }
+      if (label) label.textContent = stageNames[0];
+      requestAnimationFrame(() => requestAnimationFrame(() => stages.classList.remove('is-resetting')));
+    };
+
+    // Preload well before arrival: the video (370 KB) and both images.
+    new IntersectionObserver((es, io) => {
+      if (!es[0].isIntersecting) return;
+      loadVideo();
+      stages.querySelectorAll('.stages__pin img').forEach((im) => { if (im.decode) im.decode().catch(() => {}); });
+      io.disconnect();
+    }, { rootMargin: '150% 0px' }).observe(stages);
+
+    // Play when most of the plate is on screen; reset if it leaves the screen
+    // before the sequence has finished; stop watching once it has.
+    new IntersectionObserver((es, io) => {
+      const r = es[0].intersectionRatio;
+      if (finished) { io.disconnect(); return; }
+      if (r >= 0.55) play();
+      else if (r < 0.15 && started) reset();
+    }, { threshold: [0, 0.15, 0.55] }).observe(stages);
+  };
+
   /* ---------- Stages lookup ---------- */
   const stages = document.querySelector('[data-stages]');
   /* ---------- Stages: sketch -> render scroll progress ---------- */
@@ -327,51 +447,14 @@
     const stagesMobile = window.matchMedia('(max-width: 820px)').matches;
     if (stagesMobile) {
       stages.classList.add('stages--m');
-      // The pencil-line SVG is display:none on phones, but its ~390 paths still
-      // sit in the tree and get their style re-resolved along with everything
-      // else. They can go entirely.
-      stages.querySelectorAll('.stages__draw, .stages__drawvid').forEach((el) => el.remove());
+      initMobileStages(stages, label, stageNames);
     }
     /* Desktop drives the scrub by setting the inherited --p custom property and
        letting the stylesheet derive every mask, stroke and opacity from it.
 
-       Touch screens do not use this path at all. There the scrub is a CSS
-       scroll-driven animation (see the .stages--m rules), advanced by the
-       browser on the compositor thread with no script involved: nothing here
-       runs per frame on a phone. What remains for script on touch is done
-       once, or only when something actually changes. */
+       Touch screens do not use this path at all: there the section is not
+       pinned and plays itself once on arrival (initMobileStages, above). */
     const paint = (p) => stages.style.setProperty('--p', p.toFixed(4));
-    if (stagesMobile) {
-      const pinEl = stages.querySelector('.stages__pin');
-      const pinImgs = [...stages.querySelectorAll('.stages__pin img')];
-      // Decode the sketch and render well before the section arrives, so the
-      // first frame of the scrub is not spent decoding a 1500px image on the
-      // main thread while the finger is moving.
-      new IntersectionObserver((es, io) => {
-        if (!es[0].isIntersecting) return;
-        pinImgs.forEach((im) => { if (im.decode) im.decode().catch(() => {}); });
-        io.disconnect();
-      }, { rootMargin: '150% 0px' }).observe(stages);
-      // Near-viewport flag, and the trigger for the no-scroll-driven-animation
-      // fallback (harmless where the animation is supported).
-      let near = false;
-      new IntersectionObserver((es) => {
-        near = es[0].isIntersecting;
-        if (near) stages.classList.add('is-seen');
-      }, { rootMargin: '10% 0px' }).observe(stages);
-      // The stage name is the one thing left for script: a single layout read
-      // per scroll event while the section is near, and a text write only when
-      // the name actually changes. Layout is otherwise clean on touch, so the
-      // read is cheap.
-      window.addEventListener('scroll', () => {
-        if (!near || !label) return;
-        const r = stages.getBoundingClientRect();
-        const travel = r.height - (pinEl ? pinEl.offsetHeight : window.innerHeight);
-        const p = travel > 0 ? Math.min(1, Math.max(0, -r.top / travel)) : 1;
-        const name = stageNames[Math.min(5, Math.floor(p * 6))];
-        if (label.textContent !== name) label.textContent = name;
-      }, { passive: true });
-    }
     let cur = 0;
     let lastP = -1;
     let lastStage = -1;
